@@ -5,6 +5,8 @@ class CreateOffers < ActiveRecord::Migration
     	t.string :time
     	t.string :location
     	t.boolean :accepted
+    	t.belongs_to :item
+    	t.belongs_to :user
       t.timestamps null: false
     end
   end
