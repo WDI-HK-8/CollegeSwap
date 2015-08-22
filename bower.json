@@ -1,0 +1,24 @@
+{
+  "name": "collegeswap",
+  "version": "0.0.0",
+  "homepage": "https://github.com/WDI-HK-8/CollegeSwap",
+  "authors": [
+    "JEFFREY <monogut@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.4",
+    "angular": "~1.4.4",
+    "jquery": "~2.1.4",
+    "ng-token-auth": "~0.0.28",
+    "bootstrap": "~3.3.5",
+    "angular-cookie": "~4.0.9"
+  }
+}

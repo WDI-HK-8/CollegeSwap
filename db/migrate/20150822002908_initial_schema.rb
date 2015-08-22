@@ -29,7 +29,7 @@ class InitialSchema < ActiveRecord::Migration
         t.timestamps
     end
 
-      create_table :itemcomments
+      create_table :comments
         t.string :content
         t.timestamps
     end 

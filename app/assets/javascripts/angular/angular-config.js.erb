@@ -1,0 +1,35 @@
+var app = angular.module('rails-instagram', ['ngRoute', 'ng-token-auth']);
+
+app.config(['$routeProvider', '$locationProvider', '$authProvider', function($routeProvider, $locationProvider, $authProvider) {
+  // Configure Angular Routes
+  $routeProvider.
+    when('/', {
+      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      controller: 'StaticPagesCtrl'
+    }).
+    when('/signup',{
+      templateUrl: "<%= asset_path('auth/signup.html') %>",
+      controller: 'SignUpCtrl'
+    }).
+    when('/login',{
+      templateUrl: "<%= asset_path('auth/login.html') %>",
+      controller: 'LoginCtrl'
+    }).
+    when('/posts', {
+      templateUrl: "<%= asset_path('posts/index.html') %>",
+      controller: 'PostsIndexCtrl'
+    })
+    .when('/posts/:id', {
+      templateUrl: "<%= asset_path('posts/show.html') %>",
+      controller: 'PostsShowCtrl'
+    })
+    .when('/new_posts', {
+      templateUrl: "<%= asset_path('posts/new.html') %>",
+      controller: 'PostsNewCtrl'
+    })
+
+
+  $authProvider.configure({
+    apiUrl: 'http://localhost:3000'
+  })
+}]);
