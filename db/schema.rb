@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822030803) do
+ActiveRecord::Schema.define(version: 20150822024229) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,26 +19,40 @@ ActiveRecord::Schema.define(version: 20150822030803) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.text     "description"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "offers", force: :cascade do |t|
+    t.string   "text"
+    t.string   "time"
+    t.string   "location"
+    t.boolean  "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ratings", force: :cascade do |t|
+    t.integer  "value"
+    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "schools", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
