@@ -1,14 +1,30 @@
-app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', function($scope, $http, $auth){
-  $scope.message = "Hello World!";
-  $scope.logout = function(){
-    $auth.signOut().
-      then(function(response){
-        // handle success
-        console.log(response);
-        alert("You have signed out");
-      }).
-      catch(function(response){
-        console.log(response);
-      })
+app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', '$location', function($scope, $http, $auth, $location){
+  $scope.message = "Welcome to CollegeSwap!!";
+
+  $scope.signup = function(){
+    $auth.submitRegistration($scope.registrationForm).then(function(response){
+      // handle success
+      console.log(response)
+
+      $location.path('/#/opening');
+    }).catch(function(response){
+      // handle errors
+      console.log(response)
+    })
   }
+
+  $scope.login = function () {
+    $auth.submitLogin($scope.loginForm).
+     then(function(resp) {
+       // handle success response
+       console.log(resp);
+
+       // redirect to root when registration succesfull 
+       $location.path('/#/opening');
+     }).
+     catch(function(resp) {
+       // handle error response
+       console.log(resp);
+     });
+  };
 }]);
