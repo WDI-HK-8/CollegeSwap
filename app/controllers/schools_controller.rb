@@ -4,4 +4,5 @@ class SchoolsController < ApplicationController
     schools = School.all
     render json: schools
   end
+  
 end

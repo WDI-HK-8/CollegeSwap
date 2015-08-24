@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   match '/swap', to: 'pages#swap', via: :get
   match '/offer', to: 'pages#offer', via: :get
   match '/schools', to: 'pages#schools', via: :get
+  match '/comments', to: 'pages#comments', via: :get
+  match '/items', to: 'pages#items', via: :get 
 end

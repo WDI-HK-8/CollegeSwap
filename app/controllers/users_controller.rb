@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
-  def index
-  end
-  
+def index
+      users = user.all
+      render json: users
+    end
 end
