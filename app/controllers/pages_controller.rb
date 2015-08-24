@@ -6,7 +6,8 @@ class PagesController < ApplicationController
   def offer
   end
 
-  def bookmark
+  def school
+    
   end
   
 end
