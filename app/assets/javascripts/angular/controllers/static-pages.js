@@ -1,6 +1,5 @@
 app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', function($scope, $http, $auth){
   $scope.message = "Hello World!";
-
   $scope.logout = function(){
     $auth.signOut().
       then(function(response){

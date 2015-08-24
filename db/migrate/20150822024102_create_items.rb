@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration
       t.belongs_to :user
       t.text    :description
       t.integer :price 
+      t.boolean :loved
       t.timestamps
     end
   end
