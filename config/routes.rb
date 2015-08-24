@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 	end
 
 
-  root 'users#index'
+  root 'static_pages#index'
 
   match '/swap', to: 'pages#swap', via: :get
   match '/offer', to: 'pages#offer', via: :get

@@ -1,4 +1,4 @@
-var app = angular.module('rails-instagram', ['ngRoute', 'ng-token-auth']);
+var app = angular.module('CollegeSwap', ['ngRoute', 'ng-token-auth']);
 
 app.config(['$routeProvider', '$locationProvider', '$authProvider', function($routeProvider, $locationProvider, $authProvider) {
   // Configure Angular Routes
@@ -14,18 +14,6 @@ app.config(['$routeProvider', '$locationProvider', '$authProvider', function($ro
     when('/login',{
       templateUrl: "<%= asset_path('auth/login.html') %>",
       controller: 'LoginCtrl'
-    }).
-    when('/posts', {
-      templateUrl: "<%= asset_path('posts/index.html') %>",
-      controller: 'PostsIndexCtrl'
-    })
-    .when('/posts/:id', {
-      templateUrl: "<%= asset_path('posts/show.html') %>",
-      controller: 'PostsShowCtrl'
-    })
-    .when('/new_posts', {
-      templateUrl: "<%= asset_path('posts/new.html') %>",
-      controller: 'PostsNewCtrl'
     })
 
 
