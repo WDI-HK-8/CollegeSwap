@@ -5,7 +5,12 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable
   include DeviseTokenAuth::Concerns::User
-   has_many :item
-   has_many :rating
-   has_many :comment
+
+
+  has_many :items
+  has_many :comments
+  belongs_to :school
+  has_many :bookmarks
+  has_many :ratings
+
 end
