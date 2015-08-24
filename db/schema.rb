@@ -11,34 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822030803) do
+ActiveRecord::Schema.define(version: 20150824032848) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.integer  "user_id"
+    t.text     "description"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "offers", force: :cascade do |t|
+    t.string   "text"
+    t.string   "time"
+    t.string   "location"
+    t.boolean  "accepted"
+    t.integer  "item_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "value"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.integer  "posting_user_id_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,13 +91,14 @@ ActiveRecord::Schema.define(version: 20150822030803) do
     t.string   "nickname"
     t.string   "image"
     t.string   "email"
+    t.integer  "school_id"
     t.text     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
 end
