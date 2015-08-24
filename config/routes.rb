@@ -22,12 +22,12 @@ Rails.application.routes.draw do
   match '/items', to: 'pages#items', via: :post
     
     get '/' => 'static_pages#index'
-    get '/items' => 'get#items'
-    get '/items{item_id}' => 'get#items'
-    get 'items/search?query={query}' => 'get#items'
-    get 'items/swap?price={price}' => 'get#items'
-    get '/user/{id}/items' => 'get#items'
-    get '/items/{item_id}/offers/{offer_id}' => 'get#'
+    get '/items' => 'items#get'
+    get '/items{item_id}' => 'items#get'
+    get 'items/search?query={query}' => 'items#get'
+    get 'items/swap?price={price}' => 'items#get'
+    get '/user/{id}/items' => 'items#get'
+    get '/items/{item_id}/offers/{offer_id}' => 'offers#get'
 
     post '/signup' => 'post#users'
 
@@ -36,13 +36,12 @@ Rails.application.routes.draw do
     put '/profile' => 'items#update' 
     put '/items/{item_id}/offers/{offer_id}/accepted' =>'items#update'
 
-    post '/delete' => 'delete#destroy'
-    post '/items' => 'posts#items'
-    post '/items/{item_id}' => 'posts#items'
+    post '/items' => 'items#show'
+    post '/items/{item_id}' => 'items#show'
 
     
     delete 'items/{item_id}' => 'items#destroy'
-    delete 'items/{item_id}/offers/{offer_id}/accepted'
+    delete 'items/{item_id}/offers/{offer_id}/accepted' => 'offers#destroy'
 
 
 end
