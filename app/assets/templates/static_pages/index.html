@@ -5,30 +5,26 @@
         <li role="presentation" class="active signup_section"><a>Sign Up</a></li>
         <li role="presentation" class="login_section"><a>Log In</a></li>
       </ul>
-      <form class="signup_form">
+      <form class="signup_form" ng-submit="signup()">
         <div class="row">
           <div>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Username">
+              <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control" placeholder="Email">
             </div>
           </div>
         </div>
         <div class="row">
           <div>
             <div class="input-group">
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control" placeholder="Password">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="input-group">
-            <input type="text" list="schools" placeholder="School">
+            <input type="text" list="schools" ng-model="registrationForm.school_id" required="required" placeholder="School">
             <datalist id="schools">
-              <option value="University of Michigan">
-              <option value="University of California - Berkeley">
-              <option value="Boston University">
-              <option value="Harvard University">
-              <option value="Yale University">
+              <option ng-repeat="school in schools" value="{{ school.id }}">{{ school.name }}</option>
             </datalist>
           </div>
         </div>
@@ -37,18 +33,18 @@
         </div>
       </form>
       <!-- Log in Form!!! -->
-      <form class="login_form" style="display: none">
+      <form class="login_form" style="display: none" ng-submit="login()">
         <div class="row">
           <div>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Username">
+              <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="Email">
             </div>
           </div>
         </div>
         <div class="row">
           <div>
             <div class="input-group">
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="Password">
             </div>
           </div>
         </div>
