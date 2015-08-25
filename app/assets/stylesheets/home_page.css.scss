@@ -1,0 +1,268 @@
+
+.home_page {
+  padding: 0;
+  margin: 0;
+
+  .profile {
+    width: 100%;
+    padding: 80px 100px 50px 150px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .profile_pic {
+    height: 200px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 50px;
+  }
+
+  .user_info {
+    float: left;
+  }
+
+  p.user_name {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 10px;
+  }
+
+  p.user_school {
+    font-size: 18px;
+    color: Silver;
+  }
+
+  p.user_school span {
+    font-size: 23px;
+    color: black;
+  }
+
+  p.user_school span:hover {
+    text-decoration: underline;
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  p.user_major {
+    font-size: 18px;
+    color: Silver;
+  }
+
+  p.user_major span {
+    font-size: 23px;
+    color: black;
+  }
+
+  p.user_major span:hover {
+    text-decoration: underline;
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .add_new_item {
+    float: right;
+    margin-right: 15px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .add_new_item:hover {
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .log_out {
+    float: right;
+    margin-right: 10px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .log_out:hover {
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .tab_section {
+    padding-left: 150px;
+    padding-top: 6px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 5px;
+  }
+
+  .tab_section ul li {
+    font-size: 20px;
+    width: 450px;
+    border-right: 1px solid lightgrey;
+  }
+
+  .tab_section ul li:last-child {
+    border-right: none;
+    font-size: 20px;
+    width: 400px;
+  }
+  .tab_section ul li a {
+    color: grey;
+  }
+
+  .tab_section ul li a:hover {
+    color: white;
+    background-color: DeepSkyBlue;
+    border-bottom: white;
+
+  }
+
+  .tab_section ul li span {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  /* Filter */
+  .filter_section {
+    padding-left: 150px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid whitesmoke;
+  }
+
+  .filter_section input.search_items {
+    height: 40px;
+    width: 300px;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  .filter_section .filter_category {
+    height: 40px;
+    margin-left: 10px;
+    width: 150px;
+  }
+
+  .filter_section .filter_priceRange {
+    height: 40px;
+    margin-left: 10px;
+    width: 150px;
+  }
+
+  /* Content */
+
+  .tab_content {
+    padding-left: 150px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  .one_item {
+    height: 250px;
+    border: 1px solid lightgrey;
+    width: 1300px;
+    padding-left: 20px;
+    padding-top: 30px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .one_item .item_info {
+    padding-bottom: 50px;
+  }
+
+  .one_item img {
+    float: left;
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+  }
+
+  .one_item h3.item_name {
+    font-family: 'Oswald', sans-serif;
+    float: left;
+    font-size: 40px;
+    width: 800px;
+    display: block;
+    margin-top: 0px;
+  }
+
+  .one_item h3.item_price {
+    font-family: 'Oswald', sans-serif;
+    float: left;
+    font-size: 26px;
+  }
+
+  .one_item p.item_other_info {
+    clear: both;
+    position: absolute;
+    bottom: 5px;
+    left: 36px;
+    color: Silver;
+  }
+
+  .one_item p.item_other_info span.item_owner {
+    text-decoration: underline;
+    color: black;
+  }
+
+  .one_item p.item_other_info span.item_post_date {
+    text-decoration: underline;
+    color: black;
+  }
+
+  .one_item p.item_other_info span.item_owner:hover {
+    text-decoration: underline;
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .one_item p.item_other_info span.item_post_date:hover {
+    text-decoration: underline;
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  /* Swap it button */
+  .one_item > button.item_swap_it {
+    display: none;
+    position: absolute;
+    width: 150px;
+    height: 60px;
+    top: 20px;
+    right: 15px;
+    font-size: 18px;
+    background-color: MediumSeaGreen;
+    color: white;
+  }
+  .one_item > button.item_swap_it span {
+    margin-right: 8px;
+  }
+
+  .one_item:hover > button.item_swap_it {
+    display: block;
+  }
+
+  .one_item:hover > button.item_swap_it:hover {
+    background-color: white;
+    color: MediumSeaGreen;
+    border: 1px solid MediumSeaGreen;
+  }
+
+
+  /* Row-correct */
+  .row-correct {
+    margin-left: 0;
+  }
+
+  /* Tab-active */
+
+
+
+
+
+
+
+
+
+
+
+
+}
