@@ -4,12 +4,14 @@ app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', '$location', funct
   $scope.signup = function(){
     $auth.submitRegistration($scope.registrationForm).then(function(response){
       // handle success
-      console.log(response)
+      console.log(response);
 
-      $location.path('/#/opening');
+      $location.path('/#/home');
     }).catch(function(response){
       // handle errors
-      console.log(response)
+
+      alert("Unsuccessful signup");
+      console.log(response);
     })
   }
 
@@ -20,10 +22,11 @@ app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', '$location', funct
        console.log(resp);
 
        // redirect to root when registration succesfull 
-       $location.path('/#/opening');
+       $location.path('/#/home');
      }).
      catch(function(resp) {
        // handle error response
+       alert("Unsuccessful login");
        console.log(resp);
      });
   };

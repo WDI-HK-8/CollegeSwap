@@ -12,11 +12,6 @@ Rails.application.routes.draw do
 	  end
 	end
 
-
   root 'static_pages#index'
-
-  match '/swap', to: 'pages#swap', via: :get
-  match '/offer', to: 'pages#offer', via: :get
-  match '/bookmark', to: 'pages#bookmark', via: :get
 
 end
