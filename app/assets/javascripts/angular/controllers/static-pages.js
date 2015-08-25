@@ -1,14 +1,49 @@
-app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', function($scope, $http, $auth){
-  $scope.message = "Hello World!";
-  $scope.logout = function(){
-    $auth.signOut().
-      then(function(response){
-        // handle success
-        console.log(response);
-        alert("You have signed out");
-      }).
-      catch(function(response){
-        console.log(response);
-      })
+
+app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', '$location', function($scope, $http, $auth, $location){
+  $(document).ready(function(){
+    $(document).on('click', '.landing_page .signup_section', function(){
+      $('.landing_page .signup_form').show();
+      $('.landing_page .login_form').hide();
+      $('.landing_page li.signup_section').attr('class', 'active signup_section');
+      $('.landing_page li.login_section').attr('class', 'login_section');
+    })
+
+    $(document).on('click', '.landing_page .login_section', function(){
+      $('.landing_page .login_form').show();
+      $('.landing_page .signup_form').hide();
+      $('.landing_page li.login_section').attr('class', 'active login_section');
+      $('.landing_page li.signup_section').attr('class', 'signup_section');
+    })
+
+  })
+
+  $http.get("schools").success(function(response){
+    $scope.schools=response;
+  })
+
+  $scope.login = function () {
+    $auth.submitLogin($scope.loginForm).
+     then(function(resp) {
+       // handle success response
+       console.log(resp);
+
+       // redirect back to root when registration succesfull 
+       $location.path('/home');
+     }).
+     catch(function(resp) {
+       // handle error response
+       console.log(resp);
+     });
+  };
+
+  $scope.signup = function(){
+    $auth.submitRegistration($scope.registrationForm).then(function(response){
+      // handle success
+      console.log(response)
+      $location.path('/home');
+    }).catch(function(response){
+      // handle errors
+      console.log(response)
+    })
   }
 }]);

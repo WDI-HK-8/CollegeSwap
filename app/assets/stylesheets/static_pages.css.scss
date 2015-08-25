@@ -1,0 +1,75 @@
+
+.landing_page_superwrapper {
+  background-color: skyblue;
+  height: 100%;
+
+    .landing_page {
+    background-color: skyblue;
+    margin: 0;
+    padding: 120px 300px 300px 250px;
+    text-align: center;
+    
+    h1 {
+      font-size: 55px;
+      color: white;
+    }
+    
+    ul {
+      margin-top: 130px;
+      margin-left: 210px;
+      width: 500px;
+      font-size: 20px;
+    }
+
+    .nav li {
+      width: 150px;
+    }
+
+    .nav li:hover {
+      cursor: pointer;
+    }
+
+    form {
+      padding-top: 20px;
+      padding-left: 50px;
+      background-color: white;
+      width:600px;
+      margin-left: 210px;
+      padding-bottom: 30px;
+    }
+
+    form .row input {
+      margin-top: 20px;
+      width: 500px;
+      height: 50px;
+      font-size: 22px;
+      background-color: white;
+      border: 1px solid lightgrey;
+    }
+
+    form .row input[list="schools"] {
+      padding-left: 12px;
+    }
+
+    div.submitWrapper {
+      width: 500px;
+      margin-top: 40px;
+      border-top: 1px solid lightgrey;
+      text-align: left;
+      margin-left: -15px;
+    }
+
+    .submitWrapper button {
+      width: 180px;
+      background-color: MediumSeaGreen;
+      height: 50px;
+      margin-top: 20px;
+      margin-left: 0;
+      color: white;
+      font-size: 20px;
+      text-align: left;
+      padding-left: 20px;
+      border: none;
+    }
+  }
+}

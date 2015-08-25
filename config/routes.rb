@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  resources :school do
+  resources :schools do
 	  resources :users do 
 	    resources :items do
 	    	resources :offers
@@ -14,9 +14,5 @@ Rails.application.routes.draw do
 
 
   root 'static_pages#index'
-
-  match '/swap', to: 'pages#swap', via: :get
-  match '/offer', to: 'pages#offer', via: :get
-  match '/bookmark', to: 'pages#bookmark', via: :get
 
 end
