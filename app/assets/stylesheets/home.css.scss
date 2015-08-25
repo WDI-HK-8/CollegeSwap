@@ -108,7 +108,7 @@
     color: white;
     background-color: DeepSkyBlue;
     border-bottom: white;
-
+    border-bottom: 3px solid DeepSkyBlue;
   }
 
   .tab_section ul li span {
@@ -254,11 +254,68 @@
 
   /* Tab-active */
   .tab-active {
-    border: 1px solid whitesmoke;
+    border-bottom: 3px solid DeepSkyBlue;
   }
 
+  /* Modal */
+  .modal {
+    margin: auto;
+    margin-top: 40px;
+  }
 
+  .modal-content {
+    width: 480px;
+  }
 
+  .modal-title {
+    font-size: 28px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 10px;
+  }
+
+  label[for="add_item_name_id"] {
+    display: block;
+    font-size: 20px;
+  }
+
+  #add_item_name_id {
+    display: block;
+    width: 420px;
+    height: 40px;
+  }
+
+  label[for="add_item_price_id"] {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #add_item_price_id {
+    display: block;
+    width: 420px;
+    height: 40px;
+  }
+
+  button.add_item_category {
+    width: 420px;
+    height: 40px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  label[for="add_item_des_id"] {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #add_item_des_id {
+    width: 420px;
+    height: 200px;
+    margin-bottom: 20px;
+    border: 1px solid silver;
+    border-radius: 2px;
+  }
 
 
 

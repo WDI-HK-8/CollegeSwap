@@ -1,0 +1,111 @@
+<div class="home_page">
+  <div class="wrapper">
+    <div class="profile">
+      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <div class="user_info">
+        <p class="user_name">JeffAu2015</p>
+        <p class="user_school">@ <span>University of Michigan</span></p>
+        <p class="user_major">studies <span>Economics</span></p>
+      </div>
+      <div class="log_out"><span class="glyphicon glyphicon-log-out"></span></div>
+      <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
+      <div  style="clear: both"></div>
+    </div>
+    <div class="tab_section">
+      <ul class="nav nav-pills">
+        <li role="presentation" ><a href="#" class="tab-active">ALL ITEMS<span class="badge">10</span></a></li>
+        <li role="presentation"><a href="#">MY ITEMS<span class="badge">20</span></a></li>
+        <li role="presentation"><a href="#">OFFERS<span class="badge">5</span></a></li>
+      </ul>
+    </div>
+    <div class="tab_content_wrapper">
+      <div class="filter_section">
+        <div class="row row-correct">
+          <input type="text" class="search_items">
+          <div class="btn-group">
+            <button type="button" class="filter_category btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Category <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Stationary</a></li>
+              <li><a href="#">Furniture</a></li>
+              <li><a href="#">Collection</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="filter_priceRange btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Price <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">< USD 10</a></li>
+              <li><a href="#">USD 10 - 50</a></li>
+              <li><a href="#">> USD 50</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab_content">
+        <div class="one_item">
+          <div class="item_info col-lg-12">
+            <img class="item_image col-lg-5" src="http://static.boredpanda.com/blog/wp-content/uuuploads/blow-up-doll-clothing/blow-up-doll-clothes-12.jpg">
+            <h3 class="item_name col-lg-7">Sex Doll</h3>
+            <h3 class="item_price col-lg-7">USD <span>10</span></h2>
+          </div>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">Robin</span> on <span class="item_post_date">2015-8-23</span></p>
+          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
+        </div>
+        <div class="one_item">
+          <div class="item_info col-lg-12">
+            <img class="item_image col-lg-5" src="http://topvodkabrands.com/wp-content/uploads/2013/07/Favorite-Vodka-Brands.jpg">
+            <h3 class="item_name col-lg-7">Vodka</h3>
+            <h3 class="item_price col-lg-7">USD <span>25</span></h2>
+          </div>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">Batman</span> on <span class="item_post_date">2015-8-20</span></p>
+          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
+        </div>
+        <div class="one_item">
+          <div class="item_info col-lg-12">
+            <img class="item_image col-lg-5" src="http://mag.anela.ph.s3-website-ap-southeast-1.amazonaws.com/wp-content/uploads/2015/06/584c546b0cb69586f16a9df202c24c77cf402bb2_m.jpg">
+            <h3 class="item_name col-lg-7">Time Machine</h3>
+            <h3 class="item_price col-lg-7">USD <span>1000</span></h2>
+          </div>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">Doraemon</span> on <span class="item_post_date">2015-8-16</span></p>
+          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
+        </div>
+      </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add an item and swap with people!</h4>
+        </div>
+        <div class="modal-body">
+          <label for="add_item_name_id">Item Name</label>
+          <input type="text" class="add_item_name" id="add_item_name_id">
+          <label for="add_item_price_id">Item Price</label>
+          <input type="text" class="add_item_price" id="add_item_price_id">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle add_item_category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Item category <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Cat 1</a></li>
+              <li><a href="#">Cat 2</a></li>
+              <li><a href="#">Cat 3</a></li>
+            </ul>
+          </div>
+          <label for="add_item_des_id">Item Description</label>
+          <textarea class="add_item_des" id="add_item_des_id">
+          </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add an item</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
