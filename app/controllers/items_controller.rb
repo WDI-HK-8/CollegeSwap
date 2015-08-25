@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-    @items = Item.where(user_id: User.where(school_id: current_user.school_id).pluck(:id))
+    @items = Item.where(accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id))
     # @items = Item.all
 
     render json: @items
@@ -64,6 +64,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :pic1, :pic2, :pic3, :description, :price, {:user_id => [current_user.id]})
+    params.require(:item).permit(:name, :pic1, :pic2, :pic3, :description, :price, {:user_id => [current_user.id]}, {:accepted => [false]})
   end
 end

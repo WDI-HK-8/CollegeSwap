@@ -29,6 +29,7 @@ gem 'bower'
 
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'paperclip', '~> 4.3'
 
 group :development do
   gem 'binding_of_caller'

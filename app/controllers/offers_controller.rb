@@ -50,10 +50,16 @@ class OffersController < ApplicationController
     end
   end
 
+  def acceptOffer
+    @offer = Offer.find_by_id(params[:id])
+    @offer.update(accepted: true)
+    @offer.item.update(accepted: true)
+  end
+
   private
 
   def offer_params
-    params.require(:offer).permit(:text, :time, :location, :item_id, {:user_id => [current_user.id]})
+    params.require(:offer).permit(:text, :time, :location, :item_id, {:user_id => [current_user.id]}, {:accepted => [false]})
   end
 
 end

@@ -303,6 +303,10 @@
     text-align: center;
   }
 
+  .btn-group ul li a, .btn-group ul {
+    width: 420px;
+  }
+
   label[for="add_item_des_id"] {
     display: block;
     font-size: 20px;
@@ -315,6 +319,18 @@
     margin-bottom: 20px;
     border: 1px solid silver;
     border-radius: 2px;
+  }
+
+  label[for="add_item_pic_id"] {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #add_item_pic_id {
+    display: block;
+    width: 420px;
+    height: 25px;
   }
 
 
