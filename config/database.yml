@@ -17,6 +17,3 @@ test:
   <<: *default
   database: collegeswap_test
 
-production:
-  <<: *default
-  database: collegeswap_production
