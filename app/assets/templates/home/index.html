@@ -1,10 +1,11 @@
 <div class="home_page">
   <div class="wrapper">
     <div class="profile">
-      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <img src="{{ user.image }}" width="500px" height="auto">
+
       <div class="user_info">
-        <p class="user_name">JeffAu2015</p>
-        <p class="user_school">@ <span>University of Michigan</span></p>
+        <p class="user_name">{{user.email}}</p>
+        <p class="user_school">@ <span>{{user.school.name}}</span></p>
       </div>
       <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
       <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>

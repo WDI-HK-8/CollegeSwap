@@ -1,7 +1,10 @@
-app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', function($scope, $http, $auth, $location){
+app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload' function($scope, $http, $auth, $location, Upload){
 
-	var url = "http://localhost:3000";
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
+  $scope.post = {};
+  $scope.image = {};
+  $scope.form = {};
 	$scope.item = {};
   $scope.itemForm = {};
 
@@ -33,5 +36,27 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', function
   		catch(function(response){
   			console.log(response);
   		})
+
+   $scope.user.email
+
+   $scope.user.school.name
+
+   
+  $scope.form.create = function(){
+    var data = {
+      'item[images]': $scope.item.image,
+    };
+
+     // ngFileUpload's method to upload a file
+    Upload.upload({
+      url: url + 'items',
+      fields: data,
+      file: $scope.image.file,
+      fileFormDataName: 'items[image]'
+    }).success(function(response) {
+        console.log(response);
+    });
+  };
+}]);
   }
 }])
