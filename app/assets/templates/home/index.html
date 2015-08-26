@@ -44,14 +44,18 @@
         </div>
       </div>
       <div class="tab_content">
-        <div ng-repeat="item in listedItems" class="one_item">
+        <div ng-repeat="item in listedItems track by $index" class="one_item">
           <div class="item_info col-lg-12">
-            <img class="item_image col-lg-5" src="{{ item.image">
-            <h3 class="item_name col-lg-7">{{ item.name }}</h3>
-            <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h3>
-            <h5 class="item_price col-lg-7">{{ item.description }}</h5>
+            <div class="col-lg-4">
+              <img class="item_image" src="{{ item.image}}">
+            </div>
+            <div class="col-lg-8">
+              <h3 class="item_name col-lg-7">{{ item.name }}</h3>
+              <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h3>
+              <h5 class="item_price col-lg-7">{{ item.description }}</h5>
+            </div>
           </div>
-          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{$parent.user.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.user.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
           <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
         </div>
       </div>

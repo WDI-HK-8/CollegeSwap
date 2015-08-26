@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 	def index
     @items = Item.all
 
-    render json: @items
+    # render json: @items
   end
 
   def create
@@ -51,19 +51,19 @@ class ItemsController < ApplicationController
 
   def search
   	@items = Items.where("lower(name || description)", "%#{params[:query].downcase}%")
-  	render json: @items
+  	# render json: @items
   end
 
   def swap
   	@items = Item.where(accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id)).where("user_id != ?", current_user.id)
 
-  	render json: @items
+  	# render json: @items
   end
 
   def myItems
   	@items=Item.where(user_id: current_user.id)
 
-  	render json: @items
+  	# render json: @items
   end
 
   private
