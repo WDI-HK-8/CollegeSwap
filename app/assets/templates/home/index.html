@@ -12,7 +12,7 @@
     </div>
     <div class="tab_section">
       <ul class="nav nav-pills">
-        <li role="presentation" ><a href="#" class="tab-active">ALL ITEMS<span class="badge">10</span></a></li>
+        <li role="presentation" ><a href="#" class="tab-active">ALL ITEMS<span class="badge">{{ swapcount }}</span></a></li>
         <li role="presentation"><a href="#">MY ITEMS<span class="badge">20</span></a></li>
         <li role="presentation"><a href="#">OFFERS<span class="badge">5</span></a></li>
       </ul>
@@ -44,12 +44,12 @@
         </div>
       </div>
       <div class="tab_content">
-        <div ng-repeat="item in listedItems track by $index" class="one_item">
+        <div ng-repeat="item in listedItems" class="one_item">
           <div class="item_info col-lg-12">
-            <div class="col-lg-4">
+            <div class="col-lg-2">
               <img class="item_image" src="{{ item.image}}">
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-10">
               <h3 class="item_name col-lg-7">{{ item.name }}</h3>
               <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h3>
               <h5 class="item_price col-lg-7">{{ item.description }}</h5>
