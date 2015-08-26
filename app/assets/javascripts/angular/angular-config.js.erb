@@ -1,4 +1,4 @@
-var app = angular.module('CollegeSwap', ['ngRoute', 'ng-token-auth']);
+var app = angular.module('CollegeSwap', ['ngRoute', 'ng-token-auth', 'ngFileUpload']);
 
 app.config(['$routeProvider', '$locationProvider', '$authProvider', function($routeProvider, $locationProvider, $authProvider) {
   // Configure Angular Routes
@@ -6,6 +6,10 @@ app.config(['$routeProvider', '$locationProvider', '$authProvider', function($ro
     when('/', {
       templateUrl: "<%= asset_path('static_pages/index.html') %>",
       controller: 'StaticPagesCtrl'
+    }).
+    when('/home', {
+      templateUrl: "<%= asset_path('home/index.html') %>",
+      controller: 'HomePageCtrl'
     })
 
 

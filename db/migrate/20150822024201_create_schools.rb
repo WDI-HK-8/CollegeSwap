@@ -6,5 +6,7 @@ class CreateSchools < ActiveRecord::Migration
     	t.string :state
       t.timestamps null: false
     end
+
+    add_index :schools, :name
   end
 end

@@ -1,0 +1,99 @@
+<div class="home_page">
+  <div class="wrapper">
+    <div class="profile">
+      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <div class="user_info">
+        <p class="user_name">JeffAu2015</p>
+        <p class="user_school">@ <span>University of Michigan</span></p>
+      </div>
+      <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
+      <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
+      <div  style="clear: both"></div>
+    </div>
+    <div class="tab_section">
+      <ul class="nav nav-pills">
+        <li role="presentation" ><a href="#" class="tab-active">ALL ITEMS<span class="badge">10</span></a></li>
+        <li role="presentation"><a href="#">MY ITEMS<span class="badge">20</span></a></li>
+        <li role="presentation"><a href="#">OFFERS<span class="badge">5</span></a></li>
+      </ul>
+    </div>
+    <div class="tab_content_wrapper">
+      <div class="filter_section">
+        <div class="row row-correct">
+          <input type="text" class="search_items">
+          <div class="btn-group">
+            <button type="button" class="filter_category btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Category <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Stationary</a></li>
+              <li><a href="#">Furniture</a></li>
+              <li><a href="#">Collection</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="filter_priceRange btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Price <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">< USD 10</a></li>
+              <li><a href="#">USD 10 - 50</a></li>
+              <li><a href="#">> USD 50</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab_content">
+        <div ng-repeat="item in listedItems track by $index" class="one_item">
+          <div class="item_info col-lg-12">
+            <div class="col-lg-4">
+              <img class="item_image" src="{{ item.image}}">
+            </div>
+            <div class="col-lg-8">
+              <h3 class="item_name col-lg-7">{{ item.name }}</h3>
+              <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h3>
+              <h5 class="item_price col-lg-7">{{ item.description }}</h5>
+            </div>
+          </div>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.user.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
+          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
+        </div>
+      </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add an item and swap with people!</h4>
+        </div>
+        <form class="modal-body" ng-submit="itemForm.create()">
+          <label>Item Name</label>
+          <input ng-model="item.name" type="text" class="add_item_name" id="add_item_name_id">
+          <label>Item Price</label>
+          <input ng-model="item.price" type="text" class="add_item_price" id="add_item_price_id">
+          <label>Item Picture</label>
+          <input ngf-select ng-model="image.file" type="file" id="add_item_pic_id" name="pic" accept="image/*">
+          <img ngf-src="image.file" width="200" height="200">
+          <label class="col-xs-12">Item Category</label>
+          <select ng-model="item.category" class="form-control" id="add_item_category">
+            <option value="Furniture">Furniture</option>
+            <option value="Food">Food</option>
+            <option value="Utensils">Utensils</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Electronics">Eletronics</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="add_item_des_id">Item Description</label>
+          <textarea class="add_item_des" id="add_item_des_id" ng-model="item.description">
+          </textarea>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add an item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,10 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use sqlite3 as the database for Active Record
 gem 'pg'
-gem 'sqlite3'
-# Use Uglifier as compressor for JavaScript assets
+# Use Uglifier as compressor for JavaScript assewts
 gem 'uglifier', '>= 1.3.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -20,6 +18,7 @@ gem 'utf8-cleaner'
 # Use Unicorn as the app server
 gem 'unicorn'
 gem 'sass'
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -29,6 +28,8 @@ gem 'bower'
 
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'paperclip', '~> 4.3'
+gem 'aws-sdk', '< 2.0'
 
 group :development do
   gem 'binding_of_caller'
