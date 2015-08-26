@@ -12,9 +12,9 @@
     </div>
     <div class="tab_section">
       <ul class="nav nav-pills">
-        <li role="presentation" ><a href="#" class="tab-active">ALL ITEMS<span class="badge">{{ swapcount }}</span></a></li>
+        <li role="presentation" ><a href="/#/home" class="tab-active">ALL ITEMS<span class="badge">{{ swapcount }}</span></a></li>
         <li role="presentation"><a href="#">MY ITEMS<span class="badge">20</span></a></li>
-        <li role="presentation"><a href="#">OFFERS<span class="badge">5</span></a></li>
+        <li role="presentation"><a href="/#/offer">OFFERS<span class="badge">5</span></a></li>
       </ul>
     </div>
     <div class="tab_content_wrapper">
@@ -56,7 +56,7 @@
             </div>
           </div>
           <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.user.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
-          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
+          <button type="button" class="btn btn-default item_swap_it" data-toggle="modal" data-target="#swapitModal"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
         </div>
       </div>
   </div>
@@ -92,6 +92,29 @@
           </textarea>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Add an item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Swap it Modal -->
+  <div class="modal fade swapit_modal" id="swapitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Get and Give!</h4>
+        </div>
+        <form class="modal-body">
+          <h4 class="target_item" ng-click="testing()">The item you want!</h4>
+          <label>In Exchange With</label>
+          <input type="text" class="swap_item_name" id="swap_item_name_id">
+          <label>Meeting Location</label>
+          <input type="text" class="swap_item_price" id="swap_item_price_id">
+          <label>Meeting Time</label>
+          <input type="text" class="swap_item_time" id="swap_item_time_id">
+          <button type="submit" class="btn btn-primary">Add an item</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <div style="clear:both"></div>
         </form>
       </div>
     </div>

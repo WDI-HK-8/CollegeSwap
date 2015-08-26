@@ -1,0 +1,158 @@
+<div class="offer_page">
+  <div class="wrapper">
+    <div class="profile">
+      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <div class="user_info">
+        <p class="user_name">JeffAu2015</p>
+        <p class="user_school">@ <span>University of Michigan</span></p>
+      </div>
+      <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
+      <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
+      <div  style="clear: both"></div>
+    </div>
+    <div class="tab_section">
+      <ul class="nav nav-pills">
+        <li role="presentation"><a href="/#/home">ALL ITEMS<span class="badge">10</span></a></li>
+        <li role="presentation"><a href="#">MY ITEMS<span class="badge">20</span></a></li>
+        <li role="presentation"><a href="/#/offer" class="tab-active">OFFERS<span class="badge">5</span></a></li>
+      </ul>
+    </div>
+    <div class="tab_content_wrapper">
+      <div class="tab_content">
+        <!-- Three Tables here! -->
+        <h2 class="offer_received_title">Offer Received</h2>
+        <table id="myTable" class="offer_received tablesorter">
+          <thead> 
+          <tr> 
+              <th>User</th>
+              <th>Item</th> 
+              <th>Swap With</th> 
+              <th>Location</th> 
+              <th>Time</th> 
+              <th>Decision</th> 
+          </tr> 
+          </thead> 
+          <tbody> 
+          <tr> 
+              <td>Tim</td>
+              <td>Pencil</td> 
+              <td>Pen</td> 
+              <td>Michigan Square</td> 
+              <td>2015-8-22</td> 
+              <td>
+                <button class="offer_received_accept">Accept</button>
+                <button class="offer_received_decline">Decline</button>
+              </td> 
+          </tr> 
+          <tr> 
+              <td>Bill</td>
+              <td>Sex doll</td> 
+              <td>My girlfriend</td> 
+              <td>Michigan Union</td> 
+              <td>2015-8-20</td> 
+              <td>
+                <button class="offer_received_accept">Accept</button>
+                <button class="offer_received_decline">Decline</button>
+              </td> 
+          </tr> 
+          </tbody> 
+          </table>
+          <h2 class="offer_sent_title">Offer Sent</h2>
+          <table id="myTable" class="offer_sent tablesorter">
+            <thead> 
+            <tr> 
+                <th>User</th>
+                <th>Want</th> 
+                <th>Exchange With</th> 
+                <th>Location</th> 
+                <th>Time</th>
+            </tr> 
+            </thead> 
+            <tbody> 
+            <tr> 
+                <td>Tim</td>
+                <td>Pen</td> 
+                <td>Lv.10 Pen</td> 
+                <td>Michigan Stadium</td> 
+                <td>2015-8-21</td> 
+            </tr> 
+            <tr> 
+                <td>Bill</td>
+                <td>Girlfriend</td> 
+                <td>Pizza</td> 
+                <td>Michigan Union</td> 
+                <td>2015-8-18</td> 
+            </tr> 
+            </tbody> 
+          </table>
+          <h2 class="close_case_title">Closed Case</h2>
+          <table id="myTable" class="close_case tablesorter">
+            <thead> 
+            <tr> 
+                <th>User</th>
+                <th>Get</th> 
+                <th>Give</th> 
+                <th>Location</th> 
+                <th>Time</th> 
+                <th>Contact</th> 
+            </tr> 
+            </thead> 
+            <tbody> 
+            <tr> 
+                <td>Tim</td>
+                <td>Pencil</td> 
+                <td>Pen</td> 
+                <td>Michigan Square</td> 
+                <td>2015-8-16</td> 
+                <td>Whatsapp: 610-xxx-xxxx</td> 
+            </tr> 
+            <tr> 
+                <td>Bill</td>
+                <td>Sex doll</td> 
+                <td>My girlfriend</td> 
+                <td>Michigan Union</td> 
+                <td>2015-8-10</td> 
+                <td>phone: 610-xxx-xxxx</td> 
+            </tr> 
+            </tbody> 
+           </table>
+      </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onsubmit="window.location.assign('#close')">
+    <div class="modal-dialog" ng-submit="itemForm.create()" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add an item and swap with people!</h4>
+        </div>
+        <div class="modal-body">
+          <label for="add_item_name_id">Item Name</label>
+          <input ng-model="item.name" type="text" class="add_item_name" id="add_item_name_id">
+          <label for="add_item_price_id">Item Price</label>
+          <input ng-model="item.price" type="text" class="add_item_price" id="add_item_price_id">
+          <label for="add_item_pic_id">Item Picture</label>
+          <input ng-model="item.image" type="file" id="add_item_pic_id" name="pic" accept="image/*">
+          <label for="add_item_category">Item Category</label>
+          <select ng-model="item.category" class="form-control" id="add_item_category">
+            <option value="Furniture">Furniture</option>
+            <option value="Food">Food</option>
+            <option value="Utensils">Utensils</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Electronics">Eletronics</option>
+            <option value="Other">Other</option>
+          </select>
+          <label ng-model="item.description" for="add_item_des_id">Item Description</label>
+          <textarea class="add_item_des" id="add_item_des_id">
+          </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add an item</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
