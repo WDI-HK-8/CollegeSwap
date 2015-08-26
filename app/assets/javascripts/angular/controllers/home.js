@@ -9,6 +9,7 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
   $http.get(url + '/swap').success(function(response){
     console.log(response);
     $scope.listedItems = response;
+    $scope.swapcount = response.length
   });
 
   $scope.itemForm.create = function(){
