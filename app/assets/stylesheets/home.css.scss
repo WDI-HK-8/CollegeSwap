@@ -26,6 +26,20 @@
     margin-top: 10px;
   }
 
+  p.user_name span.edit_profile {
+    font-size: 18px;
+    margin-left: 15px;
+    color: DeepSkyBlue;
+  }
+
+  p.user_name span.edit_profile:hover {
+    font-size: 18px;
+    margin-left: 15px;
+    color: DodgerBlue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   p.user_school {
     font-size: 18px;
     color: Silver;
@@ -368,6 +382,32 @@
     }
   }
 
+  /* Edit Profile */
+  #editProfile {
+    label, input, div {
+      display: block;
+    }
+
+    label {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    input {
+      width: 400px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    div.input-group {
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 100px;
+      height: 45px;
+    }
+  }
 
 
 
