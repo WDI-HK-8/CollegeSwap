@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get '/swap' => 'items#swap'
+  get '/myitems' => 'items#myitems'
 
 end

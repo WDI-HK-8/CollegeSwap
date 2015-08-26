@@ -55,7 +55,7 @@
               <h5 class="item_price col-lg-7">{{ item.description }}</h5>
             </div>
           </div>
-          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.user.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
           <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
         </div>
       </div>

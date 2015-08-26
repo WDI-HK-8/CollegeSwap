@@ -1,6 +1,6 @@
 app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
 
-	var url = "http://localhost:3000";
+	var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 	$scope.item = {};
   $scope.image = {};
