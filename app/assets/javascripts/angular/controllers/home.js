@@ -5,7 +5,7 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', function
 	$scope.item = {};
   $scope.itemForm = {};
 
-  $http.get(url + '/items').success(function(response){
+  $http.get(url + '/items/swap').success(function(response){
     console.log(response);
     $scope.listedItems = response;
   });

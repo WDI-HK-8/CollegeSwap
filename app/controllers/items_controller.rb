@@ -2,8 +2,7 @@ class ItemsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-    @items = Item.where(accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id))
-    # @items = Item.all
+    @items = Item.all
 
     render json: @items
   end
@@ -56,7 +55,13 @@ class ItemsController < ApplicationController
   end
 
   def swap
-  	@items = Item.where(price: (params[:price]*0.8)..(params[:price]*1.2))
+  	@items = Item.where(price: (params[:price]*0.8)..(params[:price]*1.2), accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id)).where("user_id != ?", current_user.id)
+
+  	render json: @items
+  end
+
+  def myItems
+  	@items=Item.where(user_id: current_user.id)
 
   	render json: @items
   end
