@@ -16,4 +16,6 @@
 //= require angular-cookie/angular-cookie
 //= require jquery/dist/jquery 
 //= require bootstrap/dist/js/bootstrap
+//= require ng-file-upload/ng-file-upload.min
+//= require ng-file-upload/ng-file-upload-shim.min
 //= require_tree .

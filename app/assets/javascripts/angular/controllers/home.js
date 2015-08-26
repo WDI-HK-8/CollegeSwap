@@ -1,8 +1,9 @@
-app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', function($scope, $http, $auth, $location){
+app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
 
 	var url = "http://localhost:3000";
 
 	$scope.item = {};
+  $scope.image = {};
   $scope.itemForm = {};
 
   $http.get(url + '/swap').success(function(response){
@@ -12,8 +13,22 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', function
 
   $scope.itemForm.create = function(){
     var data = {
-      item: $scope.item
+      'item[name]': $scope.item.name,
+      'item[category]': $scope.item.category,
+      'item[price]': $scope.item.price,
+      'item[description]': $scope.item.description
     };
+
+    Upload.upload({
+      url: url + '/items',
+      fields: data,
+      file: $scope.image.file,
+      fileFormDataName: 'item[image]'
+    }).success(function(response) {
+        console.log(response);
+    });;
+
+    console.log(data);
 
     $http.post(url + '/items', data).then(function(response){
       console.log(response);

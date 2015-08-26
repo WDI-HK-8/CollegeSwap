@@ -57,21 +57,22 @@
       </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onsubmit="window.location.assign('#close')">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-      <div class="modal-content" ng-submit="itemForm.create()">
+      <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Add an item and swap with people!</h4>
         </div>
-        <div class="modal-body">
-          <label for="add_item_name_id">Item Name</label>
+        <form class="modal-body" ng-submit="itemForm.create()">
+          <label>Item Name</label>
           <input ng-model="item.name" type="text" class="add_item_name" id="add_item_name_id">
-          <label for="add_item_price_id">Item Price</label>
+          <label>Item Price</label>
           <input ng-model="item.price" type="text" class="add_item_price" id="add_item_price_id">
-          <label for="add_item_pic_id">Item Picture</label>
-          <input ng-model="item.image" type="file" id="add_item_pic_id" name="pic" accept="image/*">
-          <label for="add_item_category">Item Category</label>
+          <label>Item Picture</label>
+          <input ngf-select ng-model="image.file" type="file" id="add_item_pic_id" name="pic" accept="image/*">
+          <img ngf-src="image.file" width="200" height="200">
+          <label class="col-xs-12">Item Category</label>
           <select ng-model="item.category" class="form-control" id="add_item_category">
             <option value="Furniture">Furniture</option>
             <option value="Food">Food</option>
@@ -82,14 +83,12 @@
             <option value="Electronics">Eletronics</option>
             <option value="Other">Other</option>
           </select>
-          <label ng-model="item.description" for="add_item_des_id">Item Description</label>
-          <textarea class="add_item_des" id="add_item_des_id">
+          <label for="add_item_des_id">Item Description</label>
+          <textarea class="add_item_des" id="add_item_des_id" ng-model="item.description">
           </textarea>
-        </div>
-        <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Add an item</button>
-        </div>
+        </form>
       </div>
     </div>
   </div>
