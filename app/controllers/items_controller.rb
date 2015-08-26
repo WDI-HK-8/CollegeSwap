@@ -64,6 +64,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :pic1, :pic2, :pic3, :description, :price, {:user_id => [current_user.id]}, {:accepted => [false]})
+    params.require(:item).permit(:name, :category, :image, :description, :price, {:user_id => [current_user.id]}, {:accepted => [false]})
   end
 end

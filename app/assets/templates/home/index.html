@@ -45,38 +45,20 @@
         </div>
       </div>
       <div class="tab_content">
-        <div class="one_item">
+        <div ng-repeat="item in listedItems" class="one_item">
           <div class="item_info col-lg-12">
-            <img class="item_image col-lg-5" src="http://static.boredpanda.com/blog/wp-content/uuuploads/blow-up-doll-clothing/blow-up-doll-clothes-12.jpg">
-            <h3 class="item_name col-lg-7">Sex Doll</h3>
-            <h3 class="item_price col-lg-7">USD <span>10</span></h2>
+            <!-- <img class="item_image col-lg-5" src="{{ item.image.url(:small) }}"> -->
+            <h3 class="item_name col-lg-7">{{ item.name }}</h3>
+            <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h2>
           </div>
-          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">Robin</span> on <span class="item_post_date">2015-8-23</span></p>
-          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
-        </div>
-        <div class="one_item">
-          <div class="item_info col-lg-12">
-            <img class="item_image col-lg-5" src="http://topvodkabrands.com/wp-content/uploads/2013/07/Favorite-Vodka-Brands.jpg">
-            <h3 class="item_name col-lg-7">Vodka</h3>
-            <h3 class="item_price col-lg-7">USD <span>25</span></h2>
-          </div>
-          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">Batman</span> on <span class="item_post_date">2015-8-20</span></p>
-          <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
-        </div>
-        <div class="one_item">
-          <div class="item_info col-lg-12">
-            <img class="item_image col-lg-5" src="http://mag.anela.ph.s3-website-ap-southeast-1.amazonaws.com/wp-content/uploads/2015/06/584c546b0cb69586f16a9df202c24c77cf402bb2_m.jpg">
-            <h3 class="item_name col-lg-7">Time Machine</h3>
-            <h3 class="item_price col-lg-7">USD <span>1000</span></h2>
-          </div>
-          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">Doraemon</span> on <span class="item_post_date">2015-8-16</span></p>
+          <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{$parent.user.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
           <button type="button" class="btn btn-default item_swap_it"><span class="glyphicon glyphicon-sort"></span>Swap it!</button>
         </div>
       </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onsubmit="window.location.assign('#close')">
+    <div class="modal-dialog" ng-submit="itemForm.create()" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -84,22 +66,23 @@
         </div>
         <div class="modal-body">
           <label for="add_item_name_id">Item Name</label>
-          <input type="text" class="add_item_name" id="add_item_name_id">
+          <input ng-model="item.name" type="text" class="add_item_name" id="add_item_name_id">
           <label for="add_item_price_id">Item Price</label>
-          <input type="text" class="add_item_price" id="add_item_price_id">
+          <input ng-model="item.price" type="text" class="add_item_price" id="add_item_price_id">
           <label for="add_item_pic_id">Item Picture</label>
-          <input type="file" id="add_item_pic_id" name="pic" accept="image/*">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle add_item_category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Item category <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Cat 1</a></li>
-              <li><a href="#">Cat 2</a></li>
-              <li><a href="#">Cat 3</a></li>
-            </ul>
-          </div>
-          <label for="add_item_des_id">Item Description</label>
+          <input ng-model="item.image" type="file" id="add_item_pic_id" name="pic" accept="image/*">
+          <label for="add_item_category">Item Category</label>
+          <select ng-model="item.category" class="form-control" id="add_item_category">
+            <option value="Furniture">Furniture</option>
+            <option value="Food">Food</option>
+            <option value="Utensils">Utensils</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Electronics">Eletronics</option>
+            <option value="Other">Other</option>
+          </select>
+          <label ng-model="item.description" for="add_item_des_id">Item Description</label>
           <textarea class="add_item_des" id="add_item_des_id">
           </textarea>
         </div>
