@@ -16,4 +16,5 @@
 //= require angular-cookie/angular-cookie
 //= require jquery/dist/jquery 
 //= require bootstrap/dist/js/bootstrap
+//= require tablesorter.min
 //= require_tree .
