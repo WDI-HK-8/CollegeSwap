@@ -6,3 +6,5 @@ json.image @item.image
 json.price @item.price
 json.user_id @item.user_id
 json.created_at @item.created_at
+json.image @item.image
+json.accepted @item.accepted

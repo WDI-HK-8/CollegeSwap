@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.new(item_params)
 
     if @item.save
       # render success in Jbuilder
@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def swap
-  	@items = Item.where(price: (params[:price]*0.8)..(params[:price]*1.2), accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id)).where("user_id != ?", current_user.id)
+  	@items = Item.where(accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id)).where("user_id != ?", current_user.id)
 
   	render json: @items
   end
@@ -69,6 +69,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :category, :image, :description, :price, {:user_id => [current_user.id]}, {:accepted => [false]})
+    params.require(:item).permit(:name, :category, :image, :description, :price, {:user_id => [current_user.id]})
   end
 end

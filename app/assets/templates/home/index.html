@@ -5,7 +5,6 @@
       <div class="user_info">
         <p class="user_name">JeffAu2015</p>
         <p class="user_school">@ <span>University of Michigan</span></p>
-        <p class="user_major">studies <span>Economics</span></p>
       </div>
       <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
       <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
@@ -47,7 +46,7 @@
       <div class="tab_content">
         <div ng-repeat="item in listedItems" class="one_item">
           <div class="item_info col-lg-12">
-            <!-- <img class="item_image col-lg-5" src="{{ item.image.url(:small) }}"> -->
+            <img class="item_image col-lg-5" src="{{ item.image">
             <h3 class="item_name col-lg-7">{{ item.name }}</h3>
             <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h3>
             <h5 class="item_price col-lg-7">{{ item.description }}</h5>
@@ -59,8 +58,8 @@
   </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onsubmit="window.location.assign('#close')">
-    <div class="modal-dialog" ng-submit="itemForm.create()" role="document">
-      <div class="modal-content">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" ng-submit="itemForm.create()">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Add an item and swap with people!</h4>

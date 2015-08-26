@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150825154542) do
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "accepted"
+    t.boolean  "accepted",           default: false
     t.string   "category"
     t.string   "image_file_name"
     t.string   "image_content_type"

@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 	    end
 	    resources :bookmarks
 	    resources :ratings
-
+	resources :schools
 
   root 'static_pages#index'
 
-  get '/items/swap' => 'items#swap'
+  get '/swap' => 'items#swap'
 
 end

@@ -24,7 +24,7 @@
           <div class="input-group">
             <input type="text" list="schools" ng-model="registrationForm.school_id" required="required" placeholder="School">
             <datalist id="schools">
-              <option ng-repeat="school in schools" value="{{ school.id }}">{{ school.name }}</option>
+              <option ng-repeat="school in schools" value="{{ school.id }}" label="{{ school.name }}"</option>
             </datalist>
           </div>
         </div>
