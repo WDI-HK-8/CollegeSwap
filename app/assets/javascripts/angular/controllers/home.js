@@ -27,7 +27,7 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
       fileFormDataName: 'item[image]'
     }).success(function(response) {
         console.log(response);
-    });;
+    });
 
     console.log(data);
 
