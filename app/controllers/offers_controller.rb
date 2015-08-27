@@ -49,26 +49,20 @@ class OffersController < ApplicationController
     end
   end
 
-  def acceptOffer
-    @offer = Offer.find_by_id(params[:id])
-    @offer.update(accepted: true)
-    @offer.item.update(accepted: true)
-  end
-
-  def offersToYou
+  def offers_to_you
     @offers = Offer.where(item_id: current_user.items.pluck(:id), accepted: false,  reject: false)
   end
 
-  def offersByYou
+  def offers_by_you
     @offers = Offer.where(user_id: current_user.id, accepted: false, reject: false)
   end
 
-  def offersAccepted
+  def offers_accepted
     @offers = Offer.where(user_id: current_user.id, accepted: true)
     @offers += Offer.where(item_id: current_user.items.pluck(:id), accepted: true)
   end
 
-  def offersRejected
+  def offers_rejected
     @offers = Offer.where(user_id: current_user.id, reject: true)
     @offers += Offer.where(item_id: current_user.items.pluck(:id), reject: true)
   end

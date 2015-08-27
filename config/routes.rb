@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   get '/swap' => 'items#swap'
   get '/my_items' => 'items#my_items'
-  get '/myItemsToSwap' => 'items#myItemsToSwap'
-  get '/offersToYou' => 'offers#offersToYou'
-  get '/offersByYou' => 'offers#offersByYou'
-  get '/offersAccepted' => 'offers#offersAccepted'
-  get '/offersRejected' => 'offers#offersRejected'
+  get '/my_items_to_swap' => 'items#my_items_to_swap'
+  get '/offers_to_you' => 'offers#offers_to_you'
+  get '/offers_by_you' => 'offers#offers_by_you'
+  get '/offers_accepted' => 'offers#offers_accepted'
+  get '/offers_rejected' => 'offers#offers_rejected'
 
 end

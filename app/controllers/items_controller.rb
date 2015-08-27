@@ -49,11 +49,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def search
-  	@items = Items.where("lower(name || description)", "%#{params[:query].downcase}%")
-  	# render json: @items
-  end
-
   def swap
   	@items = Item.where(accepted: false, user_id: User.where(school_id: current_user.school_id).pluck(:id)).where("user_id != ?", current_user.id)
 
@@ -66,7 +61,7 @@ class ItemsController < ApplicationController
   	# render json: @items
   end
 
-  def myItemsToSwap
+  def my_items_to_swap
     @items = Item.where(user_id: current_user.id, accepted: false)
 
     # render json: @items

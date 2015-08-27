@@ -14,24 +14,24 @@ app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload
     $scope.swapcount = response.length
   });
 
-  $http.get(url + '/myItems').success(function(response){
+  $http.get(url + '/my_items').success(function(response){
     $scope.mycount = response.length
   });
     
-  $http.get(url+'/offersToYou').success(function(response){
+  $http.get(url+'/offers_to_you').success(function(response){
     $scope.offerToYou = response
     $scope.offersPending = response.length
   })
 
-  $http.get(url+'/offersByYou').success(function(response){
+  $http.get(url+'/offers_by_you').success(function(response){
     $scope.offerByYou = response
   })
 
-  $http.get(url+'/offersAccepted').success(function(response){
+  $http.get(url+'/offers_accepted').success(function(response){
     $scope.offerAccepted = response
   })
 
-  $http.get(url+'/offersRejected').success(function(response){
+  $http.get(url+'/offers_rejected').success(function(response){
     $scope.offerRejected = response
   })
 
