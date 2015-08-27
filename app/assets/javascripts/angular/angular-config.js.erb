@@ -10,6 +10,14 @@ app.config(['$routeProvider', '$locationProvider', '$authProvider', function($ro
     when('/home', {
       templateUrl: "<%= asset_path('home/index.html') %>",
       controller: 'HomePageCtrl'
+    }).
+    when('/offer', {
+      templateUrl: "<%= asset_path('offer/index.html') %>",
+      controller: 'offerPageCtrl'
+    }).
+    when('/myitem', {
+      templateUrl: "<%= asset_path('myitem/index.html') %>",
+      controller: 'myitemPageCtrl'
     })
 
 
