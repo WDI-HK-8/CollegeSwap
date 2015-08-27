@@ -18,11 +18,8 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
     $scope.swapcount = response.length;
   });
 
-  $http.get(url + '/my_items').success(function(response){
-    $scope.mycount = response.length;
-  });
-
   $http.get(url + '/my_items_to_swap').success(function(response){
+    $scope.mycount = response.length;
     $scope.toSwap = response;
   });
 

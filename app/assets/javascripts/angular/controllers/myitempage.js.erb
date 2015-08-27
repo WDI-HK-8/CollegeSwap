@@ -9,7 +9,7 @@ app.controller('myitemPageCtrl',['$scope', '$http', '$auth', '$location', 'Uploa
     $scope.schoolname=response.name;
   })
 
-  $http.get(url + '/my_items').success(function(response){
+  $http.get(url + '/my_items_to_swap').success(function(response){
     console.log(response);
     $scope.listedItems = response;
     $scope.mycount = response.length

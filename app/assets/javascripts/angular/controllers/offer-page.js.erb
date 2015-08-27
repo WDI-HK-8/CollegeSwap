@@ -14,7 +14,7 @@ app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload
     $scope.swapcount = response.length
   });
 
-  $http.get(url + '/my_items').success(function(response){
+  $http.get(url + '/my_items_to_swap').success(function(response){
     $scope.mycount = response.length
   });
     
@@ -91,6 +91,11 @@ app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload
           }
         }
         $http.put(url+"/items/"+acceptedOffer.item_id, data1 ).then(function(response){
+            console.log(response);
+          }, function(response){
+            console.log(response);
+        });
+        $http.put(url+"/items/"+acceptedOffer.itemtoswap, data1 ).then(function(response){
             console.log(response);
           }, function(response){
             console.log(response);
