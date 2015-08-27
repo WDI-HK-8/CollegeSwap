@@ -6,6 +6,10 @@ app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload
   $scope.image = {};
   $scope.itemForm = {};
 
+  $http.get(url + '/schools/'+$scope.user.school_id).success(function(response){
+    $scope.schoolname=response.name;
+  })
+
   $http.get(url + '/swap').success(function(response){
     $scope.swapcount = response.length
   });
@@ -25,6 +29,10 @@ app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload
 
   $http.get(url+'/offersAccepted').success(function(response){
     $scope.offerAccepted = response
+  })
+
+  $http.get(url+'/offersRejected').success(function(response){
+    $scope.offerRejected = response
   })
 
   $scope.itemForm.create = function(){

@@ -6,6 +6,11 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
   $scope.image = {};
   $scope.itemForm = {};
   $scope.offerForm = {};
+  $scope.profile = {};
+
+  $http.get(url + '/schools/'+$scope.user.school_id).success(function(response){
+    $scope.schoolname=response.name;
+  })
 
   $http.get(url + '/swap').success(function(response){
     console.log(response);

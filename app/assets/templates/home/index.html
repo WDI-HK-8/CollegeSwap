@@ -1,10 +1,10 @@
 <div class="home_page">
   <div class="wrapper">
     <div class="profile">
-      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <img class="profile_pic" src="{{user.image}}" onerror="this.src='https://cdn4.iconfinder.com/data/icons/SIGMA/education_icons/png/400/elementary_school.png'">
       <div class="user_info">
-        <p class="user_name">JeffAu2015</p>
-        <p class="user_school">@ <span>University of Michigan</span></p>
+        <p class="user_name">{{ user.email }}</p>
+        <p class="user_school">@ <span>{{ schoolname }}</span></p>
       </div>
       <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
       <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
@@ -22,7 +22,7 @@
         <div ng-repeat="item in listedItems track by $index" class="one_item">
           <div class="item_info col-lg-12">
             <div class="col-lg-2">
-              <img class="item_image" src="{{ item.image}}">
+              <img class="item_image" src="{{ item.image}}" onerror="this.src='http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png'" >
             </div>
             <div class="col-lg-10">
               <h3 class="item_name col-lg-7">{{ item.name }}</h3>
@@ -83,14 +83,14 @@
             <h4 class="target_item">The item you want:</h4>
             <div ng-model="itemToTrade">
               <h1>{{ itemToTrade.name }}</h1>
-              <h2>USD {{ itemToTrade.price }}</h2> 
-              <img class="item_image" src="{{ itemToTrade.image}}" width=100 height=100>
+              <h3>USD {{ itemToTrade.price }}</h3> 
+              <img class="item_image" src="{{ itemToTrade.image}}" width=100 height=100 onerror="this.src='http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png'" >
             </div>
             <label>In Exchange With</label>
             <div>
               <div ng-repeat="item in toSwap track by $index" class="one_item col-lg-12">
                 <div class="item_info col-lg-12">
-                  <img class="item_image col-xs-5" src="{{ item.image}}">
+                  <img class="item_image col-xs-5" src="{{ item.image}}" onerror="this.src='http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png'" >
                   <div class="col-xs-7">
                     <h3 class="item_name col-xs-12">{{ item.name }}</h3>
                     <h3 class="item_price col-xs-12">USD <span>{{ item.price }}</span></h3>

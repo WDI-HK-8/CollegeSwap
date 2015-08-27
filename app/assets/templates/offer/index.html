@@ -1,10 +1,10 @@
 <div class="offer_page">
   <div class="wrapper">
     <div class="profile">
-      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <img class="profile_pic" src="{{user.image}}" onerror="this.src='https://cdn4.iconfinder.com/data/icons/SIGMA/education_icons/png/400/elementary_school.png'">
       <div class="user_info">
-        <p class="user_name">JeffAu2015</p>
-        <p class="user_school">@ <span>University of Michigan</span></p>
+        <p class="user_name">{{ user.email }}</p>
+        <p class="user_school">@ <span>{{ schoolname }}</span></p>
       </div>
       <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
       <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
@@ -67,7 +67,7 @@
           </tr> 
             </tbody> 
           </table>
-          <h2 class="close_case_title">Closed Offers</h2>
+          <h2 class="close_case_title">Accepted Offers</h2>
           <table id="myTable" class="close_case tablesorter">
             <thead> 
             <tr> 
@@ -89,7 +89,30 @@
                 <td>{{ offer.time }}</td> 
               </tr>
             </tbody> 
-           </table>
+          </table>
+          <h2 class="close_case_title">Rejected Offers</h2>
+          <table id="myTable" class="close_case tablesorter">
+            <thead> 
+            <tr> 
+                <th>Offering User</th>
+                <th>Receiving User</th>
+                <th>Get</th> 
+                <th>Give</th> 
+                <th>Location</th> 
+                <th>Time</th> 
+            </tr> 
+            </thead> 
+            <tbody> 
+              <tr ng-repeat="offer in offerRejected track by $index"> 
+                <td>{{ offer.user_name}}</td>
+                <td>{{ offer.sent_to}}</td>
+                <td>{{ offer.item_name}}</td> 
+                <td>{{ offer.itemtoswap_name }}</td> 
+                <td>{{ offer.location }}</td> 
+                <td>{{ offer.time }}</td> 
+              </tr>
+            </tbody> 
+          </table>
       </div>
   </div>
   <!-- Modal -->

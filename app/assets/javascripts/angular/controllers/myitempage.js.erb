@@ -5,6 +5,10 @@ app.controller('myitemPageCtrl',['$scope', '$http', '$auth', '$location', 'Uploa
   $scope.image = {};
   $scope.itemForm = {};
 
+  $http.get(url + '/schools/'+$scope.user.school_id).success(function(response){
+    $scope.schoolname=response.name;
+  })
+
   $http.get(url + '/myItems').success(function(response){
     console.log(response);
     $scope.listedItems = response;

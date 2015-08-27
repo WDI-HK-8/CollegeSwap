@@ -2,10 +2,10 @@
   <div class = "wrapper landing_page">
     <h1 class="col-lg-12">"SWAP STUFF. MAKE FRIENDS"</h1>
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active signup_section"><a>Sign Up</a></li>
-        <li role="presentation" class="login_section"><a>Log In</a></li>
+        <li role="presentation" class="signup_section" ng-init="show_signup = true" ng-class="show_signup ? 'active' : ''" ng-click="show_signup = true"><a>Sign Up</a></li>
+        <li role="presentation" ng-click="show_signup = false" ng-class="!show_signup ? 'active' : ''"class="login_section"><a>Log In</a></li>
       </ul>
-      <form class="signup_form" ng-submit="signup()">
+      <form class="signup_form" ng-submit="signup()" ng-show="show_signup">
         <div class="row">
           <div>
             <div class="input-group">
@@ -33,7 +33,7 @@
         </div>
       </form>
       <!-- Log in Form!!! -->
-      <form class="login_form" style="display: none" ng-submit="login()">
+      <form class="login_form" ng-show="!show_signup" ng-submit="login()">
         <div class="row">
           <div>
             <div class="input-group">

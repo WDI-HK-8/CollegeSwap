@@ -1,10 +1,10 @@
 <div class="myitem_page">
   <div class="wrapper">
     <div class="profile">
-      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <img class="profile_pic" src="{{user.image}}" onerror="this.src='https://cdn4.iconfinder.com/data/icons/SIGMA/education_icons/png/400/elementary_school.png'">
       <div class="user_info">
-        <p class="user_name">JeffAu2015<span class="edit_profile" data-toggle="modal" data-target="#editProfile">edit</span></p>
-        <p class="user_school">@ <span class="uni">University of Michigan</span></p>
+        <p class="user_name">{{ user.email }}</p>
+        <p class="user_school">@ <span>{{ schoolname }}</span></p>
       </div>
       <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
       <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>
@@ -22,7 +22,7 @@
         <div ng-repeat="item in listedItems" class="one_item">
           <div class="item_info col-lg-12">
             <div class="col-lg-2">
-              <img class="item_image" src="{{ item.image}}">
+              <img class="item_image" src="{{ item.image}}" onerror="this.src='http://www.indre-reisid.ee/wp-content/themes/envision/lib/images/default-placeholder.png'" >
             </div>
             <div class="col-lg-10">
               <h3 class="item_name col-lg-7">{{ item.name }}</h3>

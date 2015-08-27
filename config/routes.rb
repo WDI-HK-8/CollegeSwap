@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get '/offersToYou' => 'offers#offersToYou'
   get '/offersByYou' => 'offers#offersByYou'
   get '/offersAccepted' => 'offers#offersAccepted'
+  get '/offersRejected' => 'offers#offersRejected'
 
 end

@@ -68,6 +68,11 @@ class OffersController < ApplicationController
     @offers += Offer.where(item_id: current_user.items.pluck(:id), accepted: true)
   end
 
+  def offersRejected
+    @offers = Offer.where(user_id: current_user.id, reject: true)
+    @offers += Offer.where(item_id: current_user.items.pluck(:id), reject: true)
+  end
+
   private
 
   def offer_params
