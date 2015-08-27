@@ -1,0 +1,90 @@
+app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
+
+	var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+	$scope.item = {};
+  $scope.image = {};
+  $scope.itemForm = {};
+  $scope.offerForm = {};
+
+  $http.get(url + '/swap').success(function(response){
+    console.log(response);
+    $scope.listedItems = response;
+    $scope.swapcount = response.length;
+  });
+
+  $http.get(url + '/myItems').success(function(response){
+    $scope.mycount = response.length;
+  });
+
+  $http.get(url + '/myItemsToSwap').success(function(response){
+    $scope.toSwap = response;
+  });
+
+  $scope.itemForm.create = function(){
+    var data = {
+      'item[name]': $scope.item.name,
+      'item[category]': $scope.item.category,
+      'item[price]': $scope.item.price,
+      'item[description]': $scope.item.description
+    };
+
+    Upload.upload({
+      url: url + '/items',
+      fields: data,
+      file: $scope.image.file,
+      fileFormDataName: 'item[image]'
+    }).success(function(response) {
+        console.log(response);
+    });
+
+    console.log(data);
+
+    $http.post(url + '/items', data).then(function(response){
+      console.log(response);
+    }, function(response){
+    	console.log(response);
+    });
+  };
+
+  $scope.offerForm.create = function(){
+    var data = {
+      offer: {
+        'item_id':    $scope.itemToTrade.id,
+        'text':       $scope.offer.text,
+        'location':   $scope.offer.location,
+        'time':       $scope.offer.time,
+        'itemtoswap': $scope.itemToTradeWith.id
+      }
+    };
+
+    console.log(data);
+
+    $http.post(url + '/items/'+$scope.itemToTrade.id+'/offers', data).then(function(response){
+      console.log(response);
+    }, function(response){
+      console.log(response);
+    });
+  };
+
+	$scope.logout = function(){
+  	$auth.signOut().
+  		then(function(response){
+  			// handle success
+  			console.log(response);
+  			alert("You have signed out");
+  			$location.path("/");
+  		}).
+  		catch(function(response){
+  			console.log(response);
+  		})
+  }
+
+  $scope.getItemID = function(index){
+    $scope.itemToTrade = $scope.listedItems[index];
+  }
+
+  $scope.getItemToSwapID = function(index){
+    $scope.itemToTradeWith = $scope.toSwap[index];
+  }
+}])

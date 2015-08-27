@@ -1,5 +1,4 @@
-
-.home_page {
+.myitem_page {
   padding: 0;
   margin: 0;
 
@@ -39,7 +38,7 @@
     text-decoration: underline;
     cursor: pointer;
   }
-  
+
   p.user_school {
     font-size: 18px;
     color: Silver;
@@ -122,7 +121,6 @@
     color: white;
     background-color: DeepSkyBlue;
     border-bottom: white;
-    border-bottom: 3px solid DeepSkyBlue;
   }
 
   .tab_section ul li span {
@@ -234,8 +232,7 @@
     cursor: pointer;
   }
 
-  /* Swap it button */
-  .one_item > button.item_swap_it {
+  .one_item > button.myitem_edit {
     display: none;
     position: absolute;
     width: 150px;
@@ -246,20 +243,20 @@
     background-color: MediumSeaGreen;
     color: white;
   }
-  .one_item > button.item_swap_it span {
-    margin-right: 8px;
+
+  button.myitem_edit span {
+    margin-right: 10px;
   }
 
-  .one_item:hover > button.item_swap_it {
+  .one_item:hover > button.myitem_edit {
     display: block;
   }
 
-  .one_item:hover > button.item_swap_it:hover {
+  .one_item:hover > button.myitem_edit:hover {
     background-color: white;
     color: MediumSeaGreen;
     border: 1px solid MediumSeaGreen;
   }
-
 
   /* Row-correct */
   .row-correct {
@@ -341,80 +338,48 @@
     margin-top: 20px;
   }
 
+  label[for="add_item_category"] {
+    display: block;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
   #add_item_pic_id {
     display: block;
     width: 420px;
     height: 25px;
   }
 
-  /* swap it modal */
-  #swapitModal {
-    margin-left: 200px;
+  label[for="add_item_des_id"] {
+    font-size: 15px;
+  }
 
-    h4, label, input {
+  /* Edit Profile */
+  #editProfile {
+    label, input, div {
       display: block;
     }
 
-    h4.target_item {
-      font-family: 'Oswald', sans-serif;
-      font-size: 25px;
-      text-decoration: underline;
-      margin-bottom: 20px;
-    }
-
     label {
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 16px;
     }
 
     input {
-      width: 420px;
+      width: 400px;
       height: 40px;
+      margin-bottom: 10px;
     }
 
-    button[data-dismiss="modal"] {
-      margin-top: 20px;
-      float: right;
-      margin-right: 8px;
+    div.input-group {
+      margin-bottom: 30px;
     }
 
-    button[type="submit"] {
-      margin-top: 20px;
-      float: right;
-    }
-
-    div.one_item {
-      width: 420px;
-      position: relative;
-      
-      button.choose_it {
-        display: none;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 120px;
-        height: 45px;
-      }
-
-      img.item_image {
-        max-width: 100px;
-      }
-    }
-
-    div.one_item:hover button.choose_it {
-      display: block;
+    button {
+      width: 100px;
+      height: 45px;
     }
   }
-  
-  #swap_item_price_id {
-    width: 420px;
-    height: 100px;
-    border: 1px solid silver;
-  }
-
-
-
-
 
 
 }

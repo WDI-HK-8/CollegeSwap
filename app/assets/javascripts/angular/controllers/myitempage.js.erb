@@ -1,14 +1,18 @@
-app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
-
-	var url = "http://localhost:3000";
+app.controller('myitemPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 	$scope.item = {};
   $scope.image = {};
   $scope.itemForm = {};
 
-  $http.get(url + '/swap').success(function(response){
+  $http.get(url + '/myItems').success(function(response){
     console.log(response);
     $scope.listedItems = response;
+    $scope.mycount = response.length
+  });
+
+  $http.get(url + '/swap').success(function(response){
+    $scope.swapcount = response.length
   });
 
   $scope.itemForm.create = function(){
@@ -26,7 +30,7 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
       fileFormDataName: 'item[image]'
     }).success(function(response) {
         console.log(response);
-    });;
+    });
 
     console.log(data);
 
@@ -49,4 +53,4 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
   			console.log(response);
   		})
   }
-}])
+}]);

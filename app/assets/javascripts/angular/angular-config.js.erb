@@ -10,10 +10,18 @@ app.config(['$routeProvider', '$locationProvider', '$authProvider', function($ro
     when('/home', {
       templateUrl: "<%= asset_path('home/index.html') %>",
       controller: 'HomePageCtrl'
+    }).
+    when('/offer', {
+      templateUrl: "<%= asset_path('offer/index.html') %>",
+      controller: 'offerPageCtrl'
+    }).
+    when('/myitem', {
+      templateUrl: "<%= asset_path('myitem/index.html') %>",
+      controller: 'myitemPageCtrl'
     })
 
 
   $authProvider.configure({
-    apiUrl: 'http://localhost:3000'
+    apiUrl: "<%= ENV['URL'] || 'http://localhost:3000' %>"
   })
 }]);

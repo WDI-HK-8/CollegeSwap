@@ -18,4 +18,5 @@
 //= require bootstrap/dist/js/bootstrap
 //= require ng-file-upload/ng-file-upload.min
 //= require ng-file-upload/ng-file-upload-shim.min
+//= require tablesorter
 //= require_tree .

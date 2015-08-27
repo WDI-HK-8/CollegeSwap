@@ -1,0 +1,261 @@
+
+.offer_page {
+  padding: 0;
+  margin: 0;
+
+  .profile {
+    width: 100%;
+    padding: 80px 100px 50px 150px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .profile_pic {
+    height: 200px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 50px;
+  }
+
+  .user_info {
+    float: left;
+  }
+
+  p.user_name {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 10px;
+  }
+
+  p.user_school {
+    font-size: 18px;
+    color: Silver;
+  }
+
+  p.user_school span {
+    font-size: 23px;
+    color: black;
+  }
+
+  p.user_school span:hover {
+    text-decoration: underline;
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  p.user_major {
+    font-size: 18px;
+    color: Silver;
+  }
+
+  p.user_major span {
+    font-size: 23px;
+    color: black;
+  }
+
+  p.user_major span:hover {
+    text-decoration: underline;
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .add_new_item {
+    float: right;
+    margin-right: 15px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .add_new_item:hover {
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .log_out {
+    float: right;
+    margin-right: 10px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  .log_out:hover {
+    color: DeepSkyBlue;
+    cursor: pointer;
+  }
+
+  .tab_section {
+    padding-left: 150px;
+    padding-top: 6px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 5px;
+  }
+
+  .tab_section ul li {
+    font-size: 20px;
+    width: 450px;
+    border-right: 1px solid lightgrey;
+  }
+
+  .tab_section ul li:last-child {
+    border-right: none;
+    font-size: 20px;
+    width: 400px;
+  }
+  .tab_section ul li a {
+    color: grey;
+  }
+
+  .tab_section ul li a:hover {
+    color: white;
+    background-color: DeepSkyBlue;
+    border-bottom: white;
+    border-bottom: 3px solid DeepSkyBlue;
+  }
+
+  .tab_section ul li span {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+  /* Content */
+  div.tab_content {
+    padding-left: 150px;
+    padding-top: 30px;
+    text-align: left;
+    padding-bottom: 150px;
+  }
+
+  .tab_content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    padding-bottom: 25px;
+    padding-top: 10px;
+  }
+
+  .tab_content table td {
+    height: 35px;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .tab_content table thead tr:first-child {
+    border-bottom: 1px solid silver;
+    height: 40px;
+  }
+
+  .tab_content table tr th {
+    padding-right: 180px;
+    font-size: 18px;
+  }
+
+  .tab_content table tr th:hover {
+    cursor: pointer;
+  }
+
+  .tab_content tbody tr td button.offer_received_accept {
+    height: 35px;
+    width: 100px;
+    background-color: MediumSeaGreen;
+    color: white;
+    border: none;
+  }
+
+  .tab_content tbody tr td button.offer_received_decline {
+    height: 35px;
+    width: 100px;
+    background-color: Crimson;
+    color: white;
+    border: none;
+  }
+  
+  /* Row-correct */
+  .row-correct {
+    margin-left: 0;
+  }
+
+  /* Tab-active */
+  .tab-active {
+    border-bottom: 3px solid DeepSkyBlue;
+  }
+
+  /* Modal */
+  .modal {
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .modal-content {
+    width: 480px;
+  }
+
+  .modal-title {
+    font-size: 28px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 10px;
+  }
+
+  label[for="add_item_name_id"] {
+    display: block;
+    font-size: 20px;
+  }
+
+  #add_item_name_id {
+    display: block;
+    width: 420px;
+    height: 40px;
+  }
+
+  label[for="add_item_price_id"] {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #add_item_price_id {
+    display: block;
+    width: 420px;
+    height: 40px;
+  }
+
+  button.add_item_category {
+    width: 420px;
+    height: 40px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .btn-group ul li a, .btn-group ul {
+    width: 420px;
+  }
+
+  label[for="add_item_des_id"] {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #add_item_des_id {
+    width: 420px;
+    height: 200px;
+    margin-bottom: 20px;
+    border: 1px solid silver;
+    border-radius: 2px;
+  }
+
+  label[for="add_item_pic_id"] {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #add_item_pic_id {
+    display: block;
+    width: 420px;
+    height: 25px;
+  }
+
+
+
+
+
+
+}
