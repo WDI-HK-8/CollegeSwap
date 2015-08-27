@@ -1,0 +1,20 @@
+app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', function($scope, $http, $auth, $location){
+  $(document).ready(function() 
+    { 
+        $(".offer_received").tablesorter();
+        $(".offer_sent").tablesorter(); 
+        $(".close_case").tablesorter();
+    } 
+  ); 
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  $http.get(url + '/swap').success(function(response){
+    $scope.swapcount = response.length
+  });
+
+  $http.get(url + '/myItems').success(function(response){
+    $scope.mycount = response.length
+  });
+    
+}]);

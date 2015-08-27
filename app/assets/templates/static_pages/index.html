@@ -22,9 +22,9 @@
         </div>
         <div class="row">
           <div class="input-group">
-            <input type="text" list="schools" ng-model="registrationForm.school_id" required="required" placeholder="School">
+            <input type="text" list="schools" ng-model="registrationForm.school_id" required="required" placeholder="School" name="query">
             <datalist id="schools">
-              <option ng-repeat="school in schools" value="{{ school.id }}">{{ school.name }}</option>
+              <option ng-repeat="school in schools | filter:query" value="{{ school.id }}" label="{{ school.name }}"/>
             </datalist>
           </div>
         </div>

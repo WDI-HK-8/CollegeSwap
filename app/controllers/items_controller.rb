@@ -66,6 +66,12 @@ class ItemsController < ApplicationController
   	# render json: @items
   end
 
+  def myItemsToSwap
+    @items=Item.where(user_id: current_user.id, accepted: false)
+
+    # render json: @items
+  end
+
   private
 
   def item_params

@@ -1,6 +1,6 @@
 app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
-  
-	var url = "http://localhost:3000";
+
+	var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 	$scope.item = {};
   $scope.image = {};
@@ -10,6 +10,14 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
     console.log(response);
     $scope.listedItems = response;
     $scope.swapcount = response.length;
+  });
+
+  $http.get(url + '/myItems').success(function(response){
+    $scope.mycount = response.length;
+  });
+
+  $http.get(url + '/myItemsToSwap').success(function(response){
+    $scope.toSwap = response;
   });
 
   $scope.itemForm.create = function(){
@@ -27,7 +35,7 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
       fileFormDataName: 'item[image]'
     }).success(function(response) {
         console.log(response);
-    });;
+    });
 
     console.log(data);
 
@@ -49,5 +57,9 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
   		catch(function(response){
   			console.log(response);
   		})
+  }
+
+  $scope.getItemID = function(index){
+    $scope.itemToTrade = $scope.listedItems[index];
   }
 }])
