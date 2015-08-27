@@ -14,13 +14,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular-route": "~1.4.4",
     "angular": "~1.4.4",
-    "jquery": "~2.1.4",
-    "ng-token-auth": "~0.0.28",
-    "bootstrap": "~3.3.5",
     "angular-cookie": "~4.0.9",
-    "ng-file-upload": "~7.0.12",
-    "eonasdan-bootstrap-datetimepicker": "~4.15.35"
+    "angular-route": "~1.4.4",
+    "bootstrap": "~3.3.5",
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35",
+    "jquery": "~2.1.4",
+    "ng-file-upload": "~7.0.13",
+    "ng-token-auth": "~0.0.28"
   }
 }

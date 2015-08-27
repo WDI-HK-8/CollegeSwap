@@ -1,10 +1,10 @@
 <div class="home_page">
   <div class="wrapper">
     <div class="profile">
-      <img class="profile_pic" src="https://pbs.twimg.com/profile_images/378800000351275038/4a1032af7d42f51cf1280203e4d92cdd.jpeg">
+      <img class="profile_pic" src="http://whatsupintheworld.com/wp-content/uploads/2014/06/Facebook-Blank-Photo.jpg">
       <div class="user_info">
-        <p class="user_name">JeffAu2015<span class="edit_profile" data-toggle="modal" data-target="#editProfile">edit</span></p>
-        <p class="user_school">@ <span class="uni">University of Michigan</span></p>
+        <p class="user_name">{{ user.email }}<span class="edit_profile" data-toggle="modal" data-target="#editProfile">edit</span></p>
+        <p class="user_school">@ <span class="uni">{{ schoolid }}</span></p>
       </div>
       <div class="log_out" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></div>
       <div class="add_new_item" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></div>

@@ -5,12 +5,17 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
 	$scope.item = {};
   $scope.image = {};
   $scope.itemForm = {};
+  $scope.profile = {};
 
   $http.get(url + '/swap').success(function(response){
     console.log(response);
     $scope.listedItems = response;
     $scope.swapcount = response.length;
   });
+
+  $http.get(url + '/schools/'+$scope.user.school_id).success(function(response){
+    $scope.schoolid=response.name
+  })
 
   $scope.itemForm.create = function(){
     var data = {
@@ -50,4 +55,5 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
   			console.log(response);
   		})
   }
+
 }])
