@@ -17,7 +17,9 @@ app.controller('StaticPagesCtrl',['$scope', '$http', '$auth', '$location', funct
 
   })
 
-  $http.get("schools").success(function(response){
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  $http.get(url+"/schools").success(function(response){
     $scope.schools=response;
   })
 

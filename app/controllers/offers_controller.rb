@@ -23,7 +23,7 @@ class OffersController < ApplicationController
     if @offer.nil?
       render json: { message: "Cannot find offer" }, status: :not_found
     else
-      @offer.update(offer_params)
+      @offer.update(offer_update_params)
     end
   end
 
@@ -55,10 +55,26 @@ class OffersController < ApplicationController
     @offer.item.update(accepted: true)
   end
 
+  def offersToYou
+    @offers = Offer.where(item_id: current_user.items.pluck(:id), accepted: false,  reject: false)
+  end
+
+  def offersByYou
+    @offers = Offer.where(user_id: current_user.id, accepted: false, reject: false)
+  end
+
+  def offersAccepted
+    @offers = Offer.where(user_id: current_user.id, accepted: true)
+    @offers += Offer.where(item_id: current_user.items.pluck(:id), accepted: true)
+  end
+
   private
 
   def offer_params
     params.require(:offer).permit(:text, :time, :location, :item_id, :user_id, :itemtoswap)
   end
 
+  def offer_update_params
+    params.require(:offer).permit(:accepted, :reject)
+  end
 end

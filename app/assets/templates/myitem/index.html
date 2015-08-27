@@ -14,7 +14,7 @@
       <ul class="nav nav-pills">
         <li role="presentation" ><a href="/#/home">TO SWAP<span class="badge">{{ swapcount }}</span></a></li>
         <li role="presentation"><a href="/#/myitem" class="tab-active">MY ITEMS<span class="badge">{{ mycount }}</span></a></li>
-        <li role="presentation"><a href="/#/offer">OFFERS<span class="badge">5</span></a></li>
+        <li role="presentation"><a href="/#/offer">OFFERS<span class="badge">{{ offersPending }}</span></a></li>
       </ul>
     </div>
     <div class="tab_content_wrapper">
@@ -67,42 +67,6 @@
           </textarea>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Add an item</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!-- Edit Modal -->
-  <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Edit this item!</h4>
-        </div>
-        <form class="modal-body" ng-submit="itemForm.create()">
-          <label>Item Name</label>
-          <input ng-model="item.name" type="text" class="add_item_name" id="add_item_name_id">
-          <label>Item Price</label>
-          <input ng-model="item.price" type="text" class="add_item_price" id="add_item_price_id">
-          <label>Item Picture</label>
-          <input ngf-select ng-model="image.file" type="file" id="add_item_pic_id" name="pic" accept="image/*">
-          <img ngf-src="image.file" width="200" height="200">
-          <label for="add_item_category">Item Category</label>
-          <select ng-model="item.category" class="form-control" id="add_item_category">
-            <option value="Furniture">Furniture</option>
-            <option value="Food">Food</option>
-            <option value="Utensils">Utensils</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Books">Books</option>
-            <option value="Stationary">Stationary</option>
-            <option value="Electronics">Eletronics</option>
-            <option value="Other">Other</option>
-          </select>
-          <label for="add_item_des_id">Item Description</label>
-          <textarea class="add_item_des" id="add_item_des_id" ng-model="item.description">
-          </textarea>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Edit</button>
         </form>
       </div>
     </div>

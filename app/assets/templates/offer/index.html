@@ -14,13 +14,13 @@
       <ul class="nav nav-pills">
         <li role="presentation"><a href="/#/home">TO SWAP<span class="badge">{{ swapcount }}</span></a></li>
         <li role="presentation"><a href="/#/myitem">MY ITEMS<span class="badge">{{ mycount }}</span></a></li>
-        <li role="presentation"><a href="/#/offer" class="tab-active">OFFERS<span class="badge">5</span></a></li>
+        <li role="presentation"><a href="/#/offer" class="tab-active">OFFERS<span class="badge">{{ offersPending }}</span></a></li>
       </ul>
     </div>
     <div class="tab_content_wrapper">
       <div class="tab_content">
         <!-- Three Tables here! -->
-        <h2 class="offer_received_title">Offer Received</h2>
+        <h2 class="offer_received_title">Offers Received</h2>
         <table id="myTable" class="offer_received tablesorter">
           <thead> 
           <tr> 
@@ -33,35 +33,24 @@
           </tr> 
           </thead> 
           <tbody> 
-          <tr> 
-              <td>Tim</td>
-              <td>Pencil</td> 
-              <td>Pen</td> 
-              <td>Michigan Square</td> 
-              <td>2015-8-22</td> 
+          <tr ng-repeat="offer in offerToYou track by $index"> 
+              <td>{{ offer.user_name}}</td>
+              <td>{{ offer.item_name}}</td> 
+              <td>{{ offer.itemtoswap_name }}</td> 
+              <td>{{ offer.location }}</td> 
+              <td>{{ offer.time }}</td> 
               <td>
-                <button class="offer_received_accept">Accept</button>
-                <button class="offer_received_decline">Decline</button>
-              </td> 
-          </tr> 
-          <tr> 
-              <td>Bill</td>
-              <td>Sex doll</td> 
-              <td>My girlfriend</td> 
-              <td>Michigan Union</td> 
-              <td>2015-8-20</td> 
-              <td>
-                <button class="offer_received_accept">Accept</button>
-                <button class="offer_received_decline">Decline</button>
+                <button ng-click="accept($index)" class="offer_received_accept">Accept</button>
+                <button ng-click="reject($index)" class="offer_received_decline">Decline</button>
               </td> 
           </tr> 
           </tbody> 
           </table>
-          <h2 class="offer_sent_title">Offer Sent</h2>
+          <h2 class="offer_sent_title">Offers Sent</h2>
           <table id="myTable" class="offer_sent tablesorter">
             <thead> 
             <tr> 
-                <th>User</th>
+                <th>Sent to</th>
                 <th>Want</th> 
                 <th>Exchange With</th> 
                 <th>Location</th> 
@@ -69,57 +58,42 @@
             </tr> 
             </thead> 
             <tbody> 
-            <tr> 
-                <td>Tim</td>
-                <td>Pen</td> 
-                <td>Lv.10 Pen</td> 
-                <td>Michigan Stadium</td> 
-                <td>2015-8-21</td> 
-            </tr> 
-            <tr> 
-                <td>Bill</td>
-                <td>Girlfriend</td> 
-                <td>Pizza</td> 
-                <td>Michigan Union</td> 
-                <td>2015-8-18</td> 
-            </tr> 
+            <tr ng-repeat="offer in offerByYou track by $index"> 
+              <td>{{ offer.sent_to}}</td>
+              <td>{{ offer.item_name}}</td> 
+              <td>{{ offer.itemtoswap_name }}</td> 
+              <td>{{ offer.location }}</td> 
+              <td>{{ offer.time }}</td> 
+          </tr> 
             </tbody> 
           </table>
-          <h2 class="close_case_title">Closed Case</h2>
+          <h2 class="close_case_title">Closed Offers</h2>
           <table id="myTable" class="close_case tablesorter">
             <thead> 
             <tr> 
-                <th>User</th>
+                <th>Offering User</th>
+                <th>Receiving User</th>
                 <th>Get</th> 
                 <th>Give</th> 
                 <th>Location</th> 
                 <th>Time</th> 
-                <th>Contact</th> 
             </tr> 
             </thead> 
             <tbody> 
-            <tr> 
-                <td>Tim</td>
-                <td>Pencil</td> 
-                <td>Pen</td> 
-                <td>Michigan Square</td> 
-                <td>2015-8-16</td> 
-                <td>Whatsapp: 610-xxx-xxxx</td> 
-            </tr> 
-            <tr> 
-                <td>Bill</td>
-                <td>Sex doll</td> 
-                <td>My girlfriend</td> 
-                <td>Michigan Union</td> 
-                <td>2015-8-10</td> 
-                <td>phone: 610-xxx-xxxx</td> 
-            </tr> 
+              <tr ng-repeat="offer in offerAccepted track by $index"> 
+                <td>{{ offer.user_name}}</td>
+                <td>{{ offer.sent_to}}</td>
+                <td>{{ offer.item_name}}</td> 
+                <td>{{ offer.itemtoswap_name }}</td> 
+                <td>{{ offer.location }}</td> 
+                <td>{{ offer.time }}</td> 
+              </tr>
             </tbody> 
            </table>
       </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" onsubmit="window.location.assign('#close')">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" ng-submit="itemForm.create()" role="document">
       <div class="modal-content">
         <div class="modal-header">

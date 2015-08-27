@@ -15,6 +15,10 @@ app.controller('myitemPageCtrl',['$scope', '$http', '$auth', '$location', 'Uploa
     $scope.swapcount = response.length
   });
 
+  $http.get(url+'/offersToYou').success(function(response){
+    $scope.offersPending = response.length
+  });
+
   $scope.itemForm.create = function(){
     var data = {
       'item[name]': $scope.item.name,

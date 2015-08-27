@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
     if @item.nil?
       render json: { message: "Cannot find item" }, status: :not_found
     else
-      @item.update(item_params)
+      @item.update(item_update_params)
     end
   end
 
@@ -76,5 +76,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :category, :image, :description, :price, {:user_id => [current_user.id]})
+  end
+
+  def item_update_params
+    params.require(:item).permit(:accepted)
   end
 end

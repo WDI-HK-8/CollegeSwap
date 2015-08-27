@@ -1,13 +1,10 @@
-app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', function($scope, $http, $auth, $location){
-  $(document).ready(function() 
-    { 
-        $(".offer_received").tablesorter();
-        $(".offer_sent").tablesorter(); 
-        $(".close_case").tablesorter();
-    } 
-  ); 
+app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', 'Upload', function($scope, $http, $auth, $location, Upload){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  $scope.item = {};
+  $scope.image = {};
+  $scope.itemForm = {};
 
   $http.get(url + '/swap').success(function(response){
     $scope.swapcount = response.length
@@ -17,4 +14,99 @@ app.controller('offerPageCtrl',['$scope', '$http', '$auth', '$location', functio
     $scope.mycount = response.length
   });
     
+  $http.get(url+'/offersToYou').success(function(response){
+    $scope.offerToYou = response
+    $scope.offersPending = response.length
+  })
+
+  $http.get(url+'/offersByYou').success(function(response){
+    $scope.offerByYou = response
+  })
+
+  $http.get(url+'/offersAccepted').success(function(response){
+    $scope.offerAccepted = response
+  })
+
+  $scope.itemForm.create = function(){
+    var data = {
+      'item[name]': $scope.item.name,
+      'item[category]': $scope.item.category,
+      'item[price]': $scope.item.price,
+      'item[description]': $scope.item.description
+    };
+
+    Upload.upload({
+      url: url + '/items',
+      fields: data,
+      file: $scope.image.file,
+      fileFormDataName: 'item[image]'
+    }).success(function(response) {
+        console.log(response);
+    });
+
+    console.log(data);
+
+    $http.post(url + '/items', data).then(function(response){
+      console.log(response);
+    }, function(response){
+      console.log(response);
+    });
+  };
+
+  $scope.logout = function(){
+    $auth.signOut().
+      then(function(response){
+        // handle success
+        console.log(response);
+        alert("You have signed out");
+        $location.path("/");
+      }).
+      catch(function(response){
+        console.log(response);
+      })
+  }
+
+  $scope.accept = function(index){
+    acceptedOffer = $scope.offerToYou[index];
+    var data = {
+      offer: {
+        accepted: true
+      }
+    };
+    $http.put(url+"/items/"+acceptedOffer.item_id+"/offers/"+acceptedOffer.id, data).then(function(response){
+        console.log(response);
+        alert("Accepted Offer!");
+
+        var data1= {
+          item: {
+            accepted: true
+          }
+        }
+        $http.put(url+"/items/"+acceptedOffer.item_id, data1 ).then(function(response){
+            console.log(response);
+          }, function(response){
+            console.log(response);
+        });
+      }, function(response){
+        console.log(response);
+        alert("Error!");
+    });
+  }
+
+  $scope.reject = function(index){
+    rejectedOffer = $scope.offerToYou[index];
+    var data = {
+      offer: {
+        reject: true
+      }
+    };
+    $http.put(url+"/items/"+rejectedOffer.item_id+"/offers/"+rejectedOffer.id, data).then(function(response){
+        console.log(response);
+        alert("Rejected offer!");
+      }, function(response){
+        console.log(response);
+        alert("Error!");
+    })
+  }
+
 }]);

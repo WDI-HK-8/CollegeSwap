@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get '/swap' => 'items#swap'
   get '/myItems' => 'items#myItems'
-  get 'myItemsToSwap' => 'items#myItemsToSwap'
+  get '/myItemsToSwap' => 'items#myItemsToSwap'
+  get '/offersToYou' => 'offers#offersToYou'
+  get '/offersByYou' => 'offers#offersByYou'
+  get '/offersAccepted' => 'offers#offersAccepted'
 
 end
