@@ -8,4 +8,5 @@ json.array! @items do |item|
   json.created_at item.created_at
   json.image item.image
   json.accepted item.accepted
+  json.image @user.image
 end

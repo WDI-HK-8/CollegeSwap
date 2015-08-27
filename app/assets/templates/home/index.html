@@ -133,6 +133,8 @@
           <label>new password</label>
           <input type="text" class="swap_item_price" id="swap_item_price_id">
           <label>School</label>
+          <label for="add_user_pic_id">Profile Picture</label>
+          <input ng-model="user.image" type="file" id="add_user_pic_id" name="pic" accept="image/*">
           <div class="input-group">
             <input type="text" list="schools" ng-model="registrationForm.school_id" required="required">
             <datalist id="schools">

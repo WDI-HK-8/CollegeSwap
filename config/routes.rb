@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 	    	resources :offers
 	    	resources :comments
 	    end
+      resources :users
 	    resources :bookmarks
 	    resources :ratings
-	resources :schools
+	    resources :schools
 
   root 'static_pages#index'
 
