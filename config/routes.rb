@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get '/swap' => 'items#swap'
-  get '/myItems' => 'items#myItems'
+  get '/my_items' => 'items#my_items'
   get '/myItemsToSwap' => 'items#myItemsToSwap'
   get '/offersToYou' => 'offers#offersToYou'
   get '/offersByYou' => 'offers#offersByYou'

@@ -60,14 +60,14 @@ class ItemsController < ApplicationController
   	# render json: @items
   end
 
-  def myItems
-  	@items=Item.where(user_id: current_user.id)
+  def my_items
+  	@items = Item.where(user_id: current_user.id)
 
   	# render json: @items
   end
 
   def myItemsToSwap
-    @items=Item.where(user_id: current_user.id, accepted: false)
+    @items = Item.where(user_id: current_user.id, accepted: false)
 
     # render json: @items
   end
