@@ -100,6 +100,7 @@
                   </div>
                 </div>
                 <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
+                <button class="pick_this">Pick this!</button>
               </div>
             </div>          
             <label>Meeting Location</label>
@@ -111,29 +112,6 @@
             <div style="clear:both"></div>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- Swap it Modal -->
-  <div class="modal fade swapit_modal" id="swapitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Get and Give!</h4>
-        </div>
-        <form class="modal-body">
-          <h4 class="target_item" ng-click="testing()">The item you want!</h4>
-          <label>In Exchange With</label>
-          <input type="text" class="swap_item_name" id="swap_item_name_id">
-          <label>Meeting Location</label>
-          <input type="text" class="swap_item_price" id="swap_item_price_id">
-          <label>Meeting Time</label>
-          <input type="text" class="swap_item_time" id="swap_item_time_id">
-          <button type="submit" class="btn btn-primary">Add an item</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <div style="clear:both"></div>
-        </form>
       </div>
     </div>
   </div>
