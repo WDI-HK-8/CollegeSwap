@@ -1,15 +1,14 @@
 class OffersController < ApplicationController
 
 	def index
-  	@item = Item.find_by_id(params[:id])
+  	@item = Item.find_by_id(params[:item_id])
   	@offers = @item.offers.all
 
-  	render json: @offers
   end
 
   def create
-  	@item = Item.find_by_id(params[:id])
-    @offer = @item.offers.new(offer_params)
+  	@item = Item.find_by_id(params[:item_id])
+    @offer = @item.offers.new(offer_params.merge(user_id: current_user.id))
 
     if @offer.save
       # render success in Jbuilder
@@ -59,7 +58,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:text, :time, :location, :item_id, {:user_id => [current_user.id]}, {:accepted => [false]})
+    params.require(:offer).permit(:text, :time, :location, :item_id, :user_id, :itemtoswap)
   end
 
 end

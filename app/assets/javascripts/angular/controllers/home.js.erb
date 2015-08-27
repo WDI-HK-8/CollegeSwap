@@ -5,6 +5,7 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
 	$scope.item = {};
   $scope.image = {};
   $scope.itemForm = {};
+  $scope.offerForm = {};
 
   $http.get(url + '/swap').success(function(response){
     console.log(response);
@@ -46,6 +47,26 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
     });
   };
 
+  $scope.offerForm.create = function(){
+    var data = {
+      offer: {
+        'item_id':    $scope.itemToTrade.id,
+        'text':       $scope.offer.text,
+        'location':   $scope.offer.location,
+        'time':       $scope.offer.time,
+        'itemtoswap': $scope.itemToTradeWith.id
+      }
+    };
+
+    console.log(data);
+
+    $http.post(url + '/items/'+$scope.itemToTrade.id+'/offers', data).then(function(response){
+      console.log(response);
+    }, function(response){
+      console.log(response);
+    });
+  };
+
 	$scope.logout = function(){
   	$auth.signOut().
   		then(function(response){
@@ -61,5 +82,9 @@ app.controller('HomePageCtrl',['$scope', '$http', '$auth', '$location', 'Upload'
 
   $scope.getItemID = function(index){
     $scope.itemToTrade = $scope.listedItems[index];
+  }
+
+  $scope.getItemToSwapID = function(index){
+    $scope.itemToTradeWith = $scope.toSwap[index];
   }
 }])

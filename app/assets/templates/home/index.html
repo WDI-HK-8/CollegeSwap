@@ -79,8 +79,8 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Get and Give!</h4>
           </div>
-          <form class="modal-body">
-            <h4 class="target_item" ng-click="testing()">The item you want!</h4>
+          <form class="modal-body" ng-submit="offerForm.create()">
+            <h4 class="target_item">The item you want:</h4>
             <div ng-model="itemToTrade">
               <h1>{{ itemToTrade.name }}</h1>
               <h2>USD {{ itemToTrade.price }}</h2> 
@@ -88,25 +88,26 @@
             </div>
             <label>In Exchange With</label>
             <div>
-              <div ng-repeat="item in toSwap track by $index" class="one_item">
+              <div ng-repeat="item in toSwap track by $index" class="one_item col-lg-12">
                 <div class="item_info col-lg-12">
-                  <div class="col-lg-2">
-                    <img class="item_image" src="{{ item.image}}">
-                  </div>
-                  <div class="col-lg-10">
-                    <h3 class="item_name col-lg-7">{{ item.name }}</h3>
-                    <h3 class="item_price col-lg-7">USD <span>{{ item.price }}</span></h3>
-                    <h5 class="item_price col-lg-7">{{ item.description }}</h5>
+                  <img class="item_image col-xs-5" src="{{ item.image}}">
+                  <div class="col-xs-7">
+                    <h3 class="item_name col-xs-12">{{ item.name }}</h3>
+                    <h3 class="item_price col-xs-12">USD <span>{{ item.price }}</span></h3>
+                    <h5 class="item_price col-xs-12">{{ item.description }}</h5>
                   </div>
                 </div>
                 <p style="clear: both" class="item_other_info">Posted by <span class="item_owner">{{item.email}}</span> on <span class="item_post_date">{{ item.created_at | date}}</span></p>
+                <button type="button" ng-click="getItemToSwapID($index)" class="btn btn-default choose_it">Choose it!</button>
               </div>
-            </div>          
+            </div>
+            <label>Comment</label>
+            <textarea class="swap_item_text" id="swap_item_price_id" ng-model="offer.text"></textarea>          
             <label>Meeting Location</label>
-            <input type="text" class="swap_item_price" id="swap_item_price_id">
+            <input type="text" ng-model="offer.location" class="swap_item_price" id="swap_item_price_id">
             <label>Meeting Time</label>
-            <input type="text" class="swap_item_time" id="swap_item_time_id">
-            <button type="submit" class="btn btn-primary">Add an item</button>
+            <input type="text" ng-model="offer.time" class="swap_item_time" id="swap_item_time_id">
+            <button type="submit" class="btn btn-primary">Make offer</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <div style="clear:both"></div>
           </form>
